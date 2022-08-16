@@ -20,25 +20,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53b56e06-3a0a-46fc-b92e-bd82fca11bb6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../.idea/ss1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/controller/ConversionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/DictionaryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/service/IDictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/service/impl/DictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../khoi_tao/jsp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../khoi_tao/jsp/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/service/IConversionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/service/impl/ConversionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/repository/IDictionaryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/repository/impl/DictionaryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/caculator/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/caculator/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/caculator/src/main/java/com/codegym/controller/CaculatorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/caculator/src/main/java/com/codegym/service/ICaculatorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/caculator/src/main/java/com/codegym/service/impl/CaculatorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/src/main/java/com/codegym/controller/SandwichController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/src/main/java/com/codegym/service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/excecise/sandwich/src/main/java/com/codegym/service/impl/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/spring-email-validation/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/spring-email-validation/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/spring-email-validation/src/main/java/com/codegym/controller/EmailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/spring-email-validation/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/timezone/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/timezone/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/timezone/src/main/java/com/codegym/controller/TimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/6.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/build/classes/java/main/com/codegym/controller/ConversionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/build/classes/java/main/com/codegym/controller/ConversionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/build/libs/conversion-currency-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/build/libs/conversion-currency-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/controller/ConversionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../conversion-currency/src/main/java/com/codegym/controller/ConversionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/service/impl/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/service/impl/DictionaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/Customer/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/Customer/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +79,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -179,6 +205,9 @@
       <workItem from="1660525492646" duration="7405000" />
       <workItem from="1660546006165" duration="82000" />
       <workItem from="1660550325922" duration="13000" />
+      <workItem from="1660579184213" duration="675000" />
+      <workItem from="1660581914064" duration="665000" />
+      <workItem from="1660613404603" duration="1556000" />
     </task>
     <servers />
   </component>
@@ -202,10 +231,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1660539150976" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1660521372063">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1660613777245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1660521372063" />
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1660613777245" />
     <state x="458" y="31" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1660534044727">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -214,10 +243,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="577" y="231" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1660539285134" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1660520735149">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1660579941216">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1660520735149" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1660579941216" />
     <state width="918" height="195" key="GridCell.Tab.0.bottom" timestamp="1660546087671">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -282,13 +311,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="918" height="195" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1660539325812" />
+    <state x="360" y="23" key="new project wizard" timestamp="1660579959548">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="360" y="23" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1660579959548" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/codegym/service/impl/DictionaryService.java</url>
-          <line>22</line>
+          <line>20</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

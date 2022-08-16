@@ -1,6 +1,8 @@
 package com.codegym.service.impl;
 
+import com.codegym.repository.IDictionaryRepository;
 import com.codegym.service.IDictionaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -9,17 +11,12 @@ import java.util.Map;
 
 @Service
 public class DictionaryService implements IDictionaryService {
-    static Map<String,String> dictionary= new HashMap<>();
-    static {
-        dictionary.put("Manchester United".toLowerCase(),"Mu");
-        dictionary.put( "matchless".toLowerCase(),"vô đối");
-        dictionary.put( "into the cave".toLowerCase(),"vào hang");
-        dictionary.put( "king".toLowerCase(),"vua");
-        dictionary.put( "friendly match".toLowerCase(),"giao hữu");
-    }
+
+    @Autowired
+    IDictionaryRepository iDictionaryRepository;
 
     @Override
-    public String dictionary(String keyWord) {
-        return dictionary.get(keyWord.toLowerCase());
+    public String dictionary(String word) {
+        return iDictionaryRepository.dictionary(word);
     }
 }
