@@ -13,7 +13,7 @@ import java.util.Map;
 public class DictionaryService implements IDictionaryService {
 
     @Autowired
-    IDictionaryRepository iDictionaryRepository;
+    private IDictionaryRepository iDictionaryRepository;
 
     @Override
     public String dictionary(String word) {
