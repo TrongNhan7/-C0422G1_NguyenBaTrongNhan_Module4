@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53b56e06-3a0a-46fc-b92e-bd82fca11bb6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../practice/Customer/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/Customer/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +62,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../practice/Customer/customer-management" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -165,6 +166,7 @@
       <workItem from="1660579184213" duration="675000" />
       <workItem from="1660581914064" duration="665000" />
       <workItem from="1660613404603" duration="1628000" />
+      <workItem from="1660620632768" duration="794000" />
     </task>
     <servers />
   </component>
