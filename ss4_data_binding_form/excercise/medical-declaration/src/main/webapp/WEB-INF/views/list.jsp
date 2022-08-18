@@ -15,6 +15,7 @@
 <div>
     <p style="color: red">${mess}</p>
 </div>
+<a href="/">Thêm mới</a>
 <table border="1">
     <tr>
         <td>Họ tên</td>
