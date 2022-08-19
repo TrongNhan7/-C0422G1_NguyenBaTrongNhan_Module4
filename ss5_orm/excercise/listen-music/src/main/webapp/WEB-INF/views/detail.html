@@ -9,27 +9,31 @@
 </head>
 <body>
 <nav th:replace="/layout::header"></nav>
-<h1 class="text-center text-white ">CHI TIẾT SẢN PHẨM</h1>
+<h1 class="text-center text-white ">CHI TIẾT MUSIC</h1>
 <table class="table table-hover table-bordered table-info">
     <tr>
         <th>ID</th>
-        <td th:text="${product.id}"></td>
+        <td th:text="${music.id}"></td>
     </tr>
     <tr>
-        <th>Name</th>
-        <td th:text="${product.name}"></td>
+        <th>Name Song</th>
+        <td th:text="${music.name}"></td>
     </tr>
     <tr>
-        <th>Price</th>
-        <td th:text="${product.price}"></td>
+        <th>Singer</th>
+        <td th:text="${music.singer}"></td>
     </tr>
     <tr>
-        <th>Description</th>
-        <td th:text="${product.description}"></td>
+        <th>Type Song</th>
+        <td th:text="${music.songType}"></td>
     </tr>
     <tr>
-        <th>Producer</th>
-        <td th:text="${product.producer}"></td>
+        <th>Link</th>
+        <td>
+            <audio controls>
+                <source th:src="@{'music/' + ${music.link}}">
+            </audio>
+        </td>
     </tr>
 </table>
 </body>

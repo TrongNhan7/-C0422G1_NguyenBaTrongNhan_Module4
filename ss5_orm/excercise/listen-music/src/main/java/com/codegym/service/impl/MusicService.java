@@ -12,7 +12,7 @@ import java.util.List;
 public class MusicService implements IMusicService {
 
     @Autowired
-    IMusicRepository iMusicRepository;
+    private IMusicRepository iMusicRepository;
 
     @Override
     public List<Music> findAll() {
@@ -20,13 +20,13 @@ public class MusicService implements IMusicService {
     }
 
     @Override
-    public void addProduct(Music product) {
-        iMusicRepository.addProduct(product);
+    public void addMusic(Music music) {
+        iMusicRepository.addMusic(music);
     }
 
     @Override
-    public void edit(Music product) {
-        iMusicRepository.edit(product);
+    public void edit(Music music) {
+        iMusicRepository.edit(music);
     }
 
     @Override

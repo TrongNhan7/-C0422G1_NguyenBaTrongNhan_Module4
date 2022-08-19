@@ -25,6 +25,7 @@
             <th>ARTIST NAME</th>
             <th>TYPE</th>
             <th>LINK</th>
+            <th>DETAIL</th>
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
@@ -35,8 +36,11 @@
             <td th:text="${musicList.name}"></td>
             <td th:text="${musicList.singer}"></td>
             <td th:text="${musicList.songType}"></td>
-<!--            <td th:text="${musicList.link}"></td>-->
-            <td><audio th:src="@{'CodeGym/' + ${musicList.link}}" ></audio> </td>
+            <td>
+                <audio controls>
+                    <source th:src="@{'music/' + ${musicList.link}}">
+                </audio>
+            </td>
             <td>
                 <a class="btn btn-outline-info" th:href="@{/detail(id=${musicList.id})}">Detail</a>
             </td>

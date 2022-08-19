@@ -9,24 +9,24 @@
 </head>
 <body>
 <nav th:replace="/layout::header"></nav>
-<h1 class="p-3 text-center text-white ">CẬP NHẬT SẢN PHẨM</h1>
-<form action="/edit" method="post" th:object="${product}">
+<h1 class="p-3 text-center text-white ">CẬP NHẬT MUSIC</h1>
+<form action="/edit" method="post" th:object="${music}">
     <input type="hidden" class="form-control" id="id" th:field="*{id}" required>
     <div class="mb-3">
-        <label for="name" class="form-label">Nhập tên sản phẩm</label>
+        <label for="name" class="form-label">Nhập tên bài hát</label>
         <input type="text" class="form-control" id="name" th:field="*{name}" required>
     </div>
     <div class="mb-3">
-        <label for="price" class="form-label">Nhập giá</label>
-        <input type="number" class="form-control" id="price" th:field="*{price}" required>
+        <label for="price" class="form-label">Nhập tên ca sĩ</label>
+        <input type="number" class="form-control" id="price" th:field="*{singer}" required>
     </div>
     <div class="mb-3">
-        <label for="description" class="form-label">Nhập mô tả của sản phẩm</label>
-        <input type="text" class="form-control" id="description" th:field="*{description}" required>
+        <label for="description" class="form-label">Nhập loại nhạc</label>
+        <input type="text" class="form-control" id="description" th:field="*{songType}" required>
     </div>
     <div class="mb-3">
-        <label for="producer" class="form-label">Nhập nhà sản xuất</label>
-        <input type="text" class="form-control" id="producer" th:field="*{producer}" required>
+        <label for="producer" class="form-label">Nhập link nhạc</label>
+        <input type="file" class="form-control" id="producer" th:field="*{link}" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

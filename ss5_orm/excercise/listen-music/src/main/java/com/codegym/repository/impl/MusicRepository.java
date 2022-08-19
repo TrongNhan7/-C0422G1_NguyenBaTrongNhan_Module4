@@ -20,18 +20,18 @@ public class MusicRepository implements IMusicRepository {
     }
 
     @Override
-    public void addProduct(Music product) {
+    public void addMusic(Music music) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
-        BaseRepository.entityManager.persist(product);
+        BaseRepository.entityManager.persist(music);
         entityTransaction.commit();
     }
 
     @Override
-    public void edit(Music product) {
+    public void edit(Music music) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
-        BaseRepository.entityManager.merge(product);
+        BaseRepository.entityManager.merge(music);
         entityTransaction.commit();
     }
 

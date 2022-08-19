@@ -8,9 +8,9 @@ public interface IMusicService {
 
     List<Music> findAll();
 
-    void addProduct(Music product);
+    void addMusic(Music music);
 
-    void edit(Music product);
+    void edit(Music music);
 
     void delete(int id);
 

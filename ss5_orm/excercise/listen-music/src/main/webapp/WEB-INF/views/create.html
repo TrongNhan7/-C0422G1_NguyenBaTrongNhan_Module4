@@ -9,23 +9,28 @@
 </head>
 <body>
 <nav th:replace="/layout::header"></nav>
-<h1 class="p-3 text-center text-white ">THÊM SẢN PHẨM</h1>
-<form action="/create" method="post" th:object="${product}">
+<h1 class="p-3 text-center text-white ">THÊM NHẠC</h1>
+<div th:if="${mess != null}">
+    <p style="color: red" th:text="${mess}"></p>
+</div>
+<form action="/create" method="post" th:object="${musicForm}" novalidate="novalidate"
+      enctype="multipart/form-data">
+    <input type="hidden" th:field="*{id}"/>
     <div class="mb-3">
-        <label for="name" class="form-label">Nhập tên sản phẩm</label>
+        <label for="name" class="form-label">Nhập tên nhạc</label>
         <input type="text" class="form-control" id="name" th:field="*{name}" required>
     </div>
     <div class="mb-3">
-        <label for="price" class="form-label">Nhập giá</label>
-        <input type="number" class="form-control" id="price" th:field="*{price}" required>
+        <label for="singer" class="form-label">Nhập tên ca sĩ</label>
+        <input type="text" class="form-control" id="singer" th:field="*{singer}" required>
     </div>
     <div class="mb-3">
-        <label for="description" class="form-label">Nhập mô tả của sản phẩm</label>
-        <input type="text" class="form-control" id="description" th:field="*{description}" required>
+        <label for="songType" class="form-label">Nhập loại nhạc</label>
+        <input type="text" class="form-control" id="songType" th:field="*{songType}" required>
     </div>
     <div class="mb-3">
-        <label for="producer" class="form-label">Nhập nhà sản xuất</label>
-        <input type="text" class="form-control" id="producer" th:field="*{producer}" required>
+        <label for="link" class="form-label">Nhập loại nhạc</label>
+        <input type="file" class="form-control" id="link" th:field="*{link}" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

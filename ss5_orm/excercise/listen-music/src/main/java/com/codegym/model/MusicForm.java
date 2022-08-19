@@ -3,18 +3,10 @@ package com.codegym.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
-
-@Entity
-@Table
 public class MusicForm {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "song_name")
     private String name;
     private String singer;
-    @Column(name = "song_type")
     private String songType;
     private MultipartFile link;
 

@@ -15,10 +15,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class ProductController {
 
     @Autowired
-    IProductService iProductService;
+    private IProductService iProductService;
 
     @GetMapping("/")
-    public String showList(Model model,String name) {
+    public String showList(Model model, String name) {
         model.addAttribute("productList", iProductService.findAll(name));
         return ("/list");
     }
