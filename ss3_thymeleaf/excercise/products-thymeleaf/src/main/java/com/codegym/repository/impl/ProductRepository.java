@@ -25,8 +25,18 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public List<Product> findAll() {
-        return new ArrayList<>(productList.values());
+    public List<Product> findAll(String name) {
+        if (name == null) {
+            return new ArrayList<>(productList.values());
+        } else {
+            List<Product> products = new ArrayList<>();
+            for (Product product : productList.values()) {
+                if (product.getName().contains(name)) {
+                    products.add(product);
+                }
+            }
+            return products;
+        }
     }
 
     @Override
@@ -62,14 +72,14 @@ public class ProductRepository implements IProductRepository {
         return productList.get(id);
     }
 
-    @Override
-    public List<Product> findByName(String name) {
-        List<Product> products = new ArrayList<>();
-        for (Product product : productList.values()) {
-            if (product.getName().contains(name)) {
-                products.add(product);
-            }
-        }
-        return products;
-    }
+
+//    public List<Product> findByName(String name) {
+//        List<Product> products = new ArrayList<>();
+//        for (Product product : productList.values()) {
+//            if (product.getName().contains(name)) {
+//                products.add(product);
+//            }
+//        }
+//        return products;
+//    }
 }

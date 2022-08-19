@@ -18,8 +18,8 @@ public class ProductController {
     IProductService iProductService;
 
     @GetMapping("/")
-    public String showList(Model model) {
-        model.addAttribute("productList", iProductService.findAll());
+    public String showList(Model model,String name) {
+        model.addAttribute("productList", iProductService.findAll(name));
         return ("/list");
     }
 
@@ -62,10 +62,10 @@ public class ProductController {
         return "/detail";
     }
 
-    @PostMapping("/findByName")
-    public String showFindByName(@RequestParam String name, Model model) {
-        model.addAttribute("productList", iProductService.findByName(name));
-        return "/list";
-    }
+//    @PostMapping("/findByName")
+//    public String showFindByName(@RequestParam String name, Model model) {
+//        model.addAttribute("productList", iProductService.findByName(name));
+//        return "/list";
+//    }
 
 }

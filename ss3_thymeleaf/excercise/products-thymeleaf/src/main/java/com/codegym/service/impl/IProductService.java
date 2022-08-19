@@ -14,8 +14,8 @@ public class IProductService implements com.codegym.service.IProductService {
     IProductRepository iProductRepository;
 
     @Override
-    public List<Product> findAll() {
-        return iProductRepository.findAll();
+    public List<Product> findAll(String name) {
+        return iProductRepository.findAll(name);
     }
 
     @Override
@@ -38,8 +38,5 @@ public class IProductService implements com.codegym.service.IProductService {
         return iProductRepository.findById(id);
     }
 
-    @Override
-    public List<Product> findByName(String name) {
-        return iProductRepository.findByName(name);
-    }
+
 }

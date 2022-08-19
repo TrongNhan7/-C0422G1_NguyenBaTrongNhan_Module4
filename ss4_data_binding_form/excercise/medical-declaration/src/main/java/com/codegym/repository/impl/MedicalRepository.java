@@ -3,7 +3,7 @@ package com.codegym.repository.impl;
 import com.codegym.model.Medical;
 import com.codegym.repository.IMedicalRepository;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.beans.BeanUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -129,20 +129,7 @@ public class MedicalRepository implements IMedicalRepository {
     public void editMedical(Medical medical) {
         for (int i = 0; i < listMedical.size(); i++) {
             if (medical.getIdCard().equals(listMedical.get(i).getIdCard())) {
-                listMedical.get(i).setName(medical.getName());
-                listMedical.get(i).setBirthday(medical.getBirthday());
-                listMedical.get(i).setGender(medical.getGender());
-                listMedical.get(i).setNation(medical.getNation());
-                listMedical.get(i).setTravelInformation(medical.getTravelInformation());
-                listMedical.get(i).setVehicleId(medical.getVehicleId());
-                listMedical.get(i).setSeats(medical.getSeats());
-                listMedical.get(i).setStartYear(medical.getStartDay());
-                listMedical.get(i).setStartMonth(medical.getStartMonth());
-                listMedical.get(i).setStartDay(medical.getStartDay());
-                listMedical.get(i).setEndYear(medical.getEndYear());
-                listMedical.get(i).setEndMonth(medical.getEndMonth());
-                listMedical.get(i).setEndDay(medical.getEndDay());
-                listMedical.get(i).setGoArea(medical.getGoArea());
+                BeanUtils.copyProperties(medical, listMedical.get(i));
             }
         }
     }

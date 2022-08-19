@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductRepository {
 
-    List<Product> findAll();
+    List<Product> findAll(String name);
 
     void addProduct(Product product);
 
@@ -16,6 +16,5 @@ public interface IProductRepository {
 
     Product findById(int id);
 
-    List<Product> findByName(String name);
 
 }
