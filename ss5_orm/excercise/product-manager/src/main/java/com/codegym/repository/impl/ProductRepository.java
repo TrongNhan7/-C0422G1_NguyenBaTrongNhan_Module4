@@ -6,27 +6,22 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class ProductRepository implements IProductRepository {
-    private static final String SELECT_ALL_PRODUCT = "select p from Product as p";
+
     private static final String SELECT_BY_ID = "select p from Product as p where p.id = :id";
 
     @Override
-    public List<Product> findAll(String name) {
-        TypedQuery<Product> query = BaseRepository.entityManager.createQuery(SELECT_ALL_PRODUCT, Product.class);
+    public List<Product> findByName(String name) {
         if (name == null) {
-            return query.getResultList();
+            TypedQuery typedQuery = BaseRepository.entityManager.createQuery("select p from Product p", Product.class);
+            return typedQuery.getResultList();
         } else {
-            List<Product> products = new ArrayList<>();
-            for (Product product : query.getResultList()) {
-                if (product.getName().contains(name)) {
-                    products.add(product);
-                }
-            }
-            return products;
+            TypedQuery typedQuery = BaseRepository.entityManager.createQuery("select p from Product p where p.name like concat('%',:name,'%') ", Product.class);
+            typedQuery.setParameter("name", name);
+            return typedQuery.getResultList();
         }
     }
 

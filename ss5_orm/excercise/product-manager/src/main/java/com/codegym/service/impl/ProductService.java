@@ -15,8 +15,8 @@ public class ProductService implements IProductService {
     private IProductRepository iProductRepository;
 
     @Override
-    public List<Product> findAll(String name) {
-        return iProductRepository.findAll(name);
+    public List<Product> findByName(String name) {
+        return iProductRepository.findByName(name);
     }
 
     @Override
