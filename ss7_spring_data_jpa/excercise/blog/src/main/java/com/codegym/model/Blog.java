@@ -12,10 +12,11 @@ public class Blog {
     private Integer id;
     private String title;
     private String content;
-    @Column(name = "date_create",columnDefinition = "Date")
+    @Column(name = "date_create", columnDefinition = "Date")
     private String dateCreate;
     public boolean status = false;
     @ManyToOne
+    @JoinColumn(name = "id_category", nullable = false, referencedColumnName = "idCategory")
     private Category category;
 
     public Blog(Integer id, String title, String content, String dateCreate, boolean status, Category category) {

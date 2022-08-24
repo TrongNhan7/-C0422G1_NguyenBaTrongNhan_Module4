@@ -1,6 +1,5 @@
 package com.codegym.service.impl;
 
-import com.codegym.model.Blog;
 import com.codegym.model.Category;
 import com.codegym.repository.ICategoryRepository;
 import com.codegym.service.ICategoryService;

@@ -16,8 +16,11 @@ public class BlogService implements IBlogService {
     private IBLogRepository ibLogRepository;
 
     @Override
-    public Page<Blog> findByTitle(String title, Pageable pageable) {
-        return ibLogRepository.findByTitle(title, pageable);
+    public Page<Blog> findByTitle(String title, Integer id, Pageable pageable) {
+        if (id.equals(0)) {
+            return ibLogRepository.findByTitle(title, pageable);
+        }
+        return ibLogRepository.findByTitle(title, id, pageable);
     }
 
     @Override

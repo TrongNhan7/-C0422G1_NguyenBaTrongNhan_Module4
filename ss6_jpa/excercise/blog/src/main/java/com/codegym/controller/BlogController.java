@@ -13,16 +13,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-public class BLogController {
+public class BlogController {
 
     @Autowired
     private IBlogService iBlogService;
 
-//    @GetMapping("/")
-//    public String showList(Model model) {
-//        model.addAttribute("blogList", iBlogService.findByTitle(""));
-//        return "/list";
-//    }
 
     @GetMapping("/")
     public String findByTitle(Model model, @RequestParam(defaultValue = "") String title) {

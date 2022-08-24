@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface IBlogService {
 
-    Page<Blog> findByTitle(String title,Pageable pageable);
+    Page<Blog> findByTitle(String title, Integer id, Pageable pageable);
 
     void save(Blog blog);
 
