@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="/layout::header"></nav>
+<h1 class="p-3 text-center text-white ">CẬP NHẬT MUSIC</h1>
+<form action="/edit" method="post" th:object="${musicDto}">
+    <input type="hidden" id="id" th:field="*{id}">
+    <div class="mb-3">
+        <label for="name" class="form-label">Nhập tên bài hát</label>
+        <input type="text" class="form-control" id="name" th:field="*{name}">
+        <div class="mb-4 text-danger" th:errors="*{name}"></div>
+    </div>
+    <div class="mb-3">
+        <label for="artist" class="form-label">Nhập nghệ sĩ</label>
+        <input type="text" class="form-control" id="artist" th:field="*{artist}">
+        <div class="mb-4 text-danger" th:errors="*{artist}"></div>
+    </div>
+    <div class="mb-3">
+        <label for="typeMusic" class="form-label">Nhập loại nhạc</label>
+        <input type="text" class="form-control" id="typeMusic" th:field="*{typeMusic}">
+        <div class="mb-4 text-danger" th:errors="*{typeMusic}"></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+<script src="/js/bootstrap.js"></script>
+</html>
