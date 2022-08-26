@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body>
+<nav th:replace="~{layout::header}"></nav>
+<div style="text-align: center">
+    <h1>Product Music</h1>
+</div>
+<div th:if="${mess != null}">
+    <p style="color: red" th:text="${mess}"></p>
+</div>
+
+<div class="container ">
+    <table class="table table-dark table-striped">
+        <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Content</th>
+            <th>Total Book</th>
+            <th>Remaining Book</th>
+            <th>Detail</th>
+            <th>Give Back Book</th>
+
+        </tr>
+
+        <tr th:each="book,status :${bookList}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.nameBook}"></td>
+            <td th:text="${book.content}"></td>
+            <td th:text="${book.totalBook}"></td>
+            <td th:text="${book.remaining}"></td>
+
+            <td>
+                <a class="btn btn-outline-info" th:href="@{/detail(id=${book.id})}">Detail</a>
+            </td>
+            <td style="text-align: center">
+                <button th:onclick=|showInfoBackBook(${book.id})| type="button" class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#delete">
+                    Trả sách
+                </button>
+            </td>
+        </tr>
+
+        <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="/backBook">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Bạn muốn trả ?
+                            <input type="text" id="backBook" name="id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-secondary">Trả</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </table>
+
+</div>
+
+<script>
+    function showInfoBackBook(id) {
+        document.getElementById("backBook").value = id;
+    }
+</script>
+
+<script src="/js/bootstrap.js"></script>
+</body>
+</html>

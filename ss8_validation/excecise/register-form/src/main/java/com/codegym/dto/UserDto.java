@@ -1,5 +1,6 @@
 package com.codegym.dto;
 
+import com.codegym.util.DateTimeUtil;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -86,18 +87,7 @@ public class UserDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        UserDto userDto = (UserDto) target;
-        LocalDate localDateNow = LocalDate.now();
-        LocalDate birthday = null;
-        int years = 0;
-        try {
-            birthday = LocalDate.parse(userDto.getAge());
-            years = Period.between(birthday,localDateNow).getYears();
-            if (years < 18) {
-                errors.rejectValue("age", "create.age", "Trên 18+ mới dc nha!");
-            }
-        } catch (Exception e) {
-            errors.rejectValue("age", "create.age", "Nhập thứ gì đó!");
-        }
+        DateTimeUtil dateTimeUtil = new DateTimeUtil();
+        dateTimeUtil.checkDate(target,errors);
     }
 }
