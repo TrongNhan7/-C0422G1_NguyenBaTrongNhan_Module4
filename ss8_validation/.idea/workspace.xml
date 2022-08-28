@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="410a385f-1e51-4e59-ac7e-57783de41054" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/controller/FacilityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/contract/AttachFacility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/contract/Contract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/contract/ContractDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/customer/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/Division.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/Education.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/employee/UserRoleKey.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/facility/Facility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/facility/FacilityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/java/com/codegym/model/facility/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../case_study_module4/src/main/resources/templates/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build/classes/java/main/com/example/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build/classes/java/main/com/example/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build/classes/java/main/com/example/controller/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build/libs/jsp-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/src/main/java/com/example/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/src/main/java/com/example/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/src/main/java/com/example/controller/GreetingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/jsp/src/main/webapp/WEB-INF/views/greeting.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build/classes/java/main/com/example/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build/classes/java/main/com/example/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build/classes/java/main/com/example/controller/GreetingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build/libs/khoitao_html-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/src/main/java/com/example/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/src/main/java/com/example/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/src/main/java/com/example/controller/GreetingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/khoitao_html/src/main/webapp/WEB-INF/views/greeting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../khoi_tao/untitled/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1/practice/Customer/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1/practice/Customer/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_spring_controller/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_spring_controller/practice/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_orm/practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_orm/practice/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2DwQAH8PecT5pMGOsyIHwKxOxcz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/excecise/music1" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="410a385f-1e51-4e59-ac7e-57783de41054" name="Default Changelist" comment="" />
+      <created>1661607521692</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661607521692</updated>
+      <workItem from="1661607523155" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="165" key="FileChooserDialogImpl" timestamp="1661607532897">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="165" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1661607532897" />
+  </component>
+</project>

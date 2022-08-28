@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="~{layout::header}"></nav>
+<div style="text-align: center">
+    <h1>CONTRACT</h1>
+</div>
+<!--<div th:if="${mess != null}">-->
+<!--    <p style="color: red" th:text="${mess}"></p>-->
+<!--</div>-->
+<div class="container-fluid position-relative">
+    <div class="row">
+        <div class="col-lg-10 d-flex justify-content-center  position-absolute" style="top: 10%">
+            <div class="row">
+                <table class="table table-hover">
+                    <tr>
+                        <th>#</th>
+                        <th>Service</th>
+                        <th>Customer</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Deposit</th>
+                        <th>Total</th>
+                        <th>Accompanied service</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    data-bs-target="#newContract"><span class="material-symbols-outlined">add</span>
+                            </button>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    data-bs-target="#accompaniedService">List of accompanied service
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="newContract" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create new Contract</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-lg-3"><span>Check-in</span></div>
+                                <div class="col-lg-9"><input name="checkIn" class="form-control" type="date"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Check-out</span></div>
+                                <div class="col-lg-9"><input name="checkOut" class="form-control" type="date"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Deposit</span></div>
+                                <div class="col-lg-9"><input name="deposit" class="form-control" type="number"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Total</span></div>
+                                <div class="col-lg-9"><input readonly name="total" class="form-control" type="number">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Customer</span></div>
+                                <div class="col-lg-9"><input name="customer" class="form-control" type="text"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Service</span></div>
+                                <div class="col-lg-9"><input name="service" class="form-control" type="text"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3"><span>Accompanied service</span></div>
+                                <div class="col-lg-9">
+                                    <button class="btn btn-primary"><span class="material-symbols-outlined">add</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="accompaniedService" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
