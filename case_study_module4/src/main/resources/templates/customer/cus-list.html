@@ -17,19 +17,19 @@
 <div style="text-align: center">
     <h1 class="text-white">Customer</h1>
 </div>
-<!--<div class="mb-3">-->
-<!--    <form action="/" id="chooseCatagory">-->
-<!--        <select onchange="typeCustomer()" name="id" class="form-select">-->
-<!--            <option value="" selected>Chon</option>-->
-<!--            <option th:each="type: ${typeList}"-->
-<!--                    th:value="${type.getName()}"-->
-<!--                    th:text="${type.getName()}"></option>-->
-<!--        </select>-->
-<!--        <input class="form-control me-2" type="search" name="title" placeholder="Tìm kiếm theo title"-->
-<!--               aria-label="Search">-->
-<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--    </form>-->
-<!--</div>-->
+<div class="mb-3">
+    <form action="/" id="chooseCatagory">
+        <select onchange="typeCustomer()" name="id" class="form-select">
+            <option value="" selected>Chon</option>
+            <option th:each="type: ${typeList}"
+                    th:value="${type.getName()}"
+                    th:text="${type.getName()}"></option>
+        </select>
+        <input class="form-control me-2" type="search" name="title" placeholder="Tìm kiếm theo title"
+               aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
 
 <div class="row">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -93,7 +93,7 @@
                 </a>
             </td>
             <td style="text-align: center">
-                <button th:onclick=|showInfoDelete(${c.id})| type="button" class="btn btn-primary"
+                <button th:attr="onclick=|showInfoDelete('${c.id}','${c.customerName}')|"  type="button" class="btn btn-primary"
                         data-bs-toggle="modal" data-bs-target="#delete">
                     Delete
                 </button>
@@ -131,14 +131,14 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script>
-    // function showInfoDelete(id, name) {
-    //     document.getElementById("deleteId").value = id;
-    //     document.getElementById("deleteName").innerText = name;
-    // }
-
-    function showInfoDelete(id) {
+    function showInfoDelete(id, name) {
         document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
     }
+
+    // function showInfoDelete(id) {
+    //     document.getElementById("deleteId").value = id;
+    // }
 </script>
 </body>
 </html>

@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
 <nav th:replace="~{layout::header}"></nav>
 <div style="text-align: center">
-    <h1>CUSTOMER</h1>
+    <h1>CREATE CUSTOMER</h1>
 </div>
 <div th:if="${mess != null}">
     <p style="color: red" th:text="${mess}"></p>
@@ -17,11 +17,10 @@
 <div class="container-fluid ">
     <div class="row">
         <div class="col-lg-3">
-            <img src="img\4056083.jpg" class="w-100 " style="height: 300px">
-            <img src="img\biet-thu.jpg" class="w-100 mt-3" style="height: 300px">
+            <img src="..\img\4056083.jpg" class="w-100 " style="height: 300px">
+            <img src="..\img\biet-thu.jpg" class="w-100 mt-3" style="height: 300px">
         </div>
         <div class="col-lg-6">
-            <h1>Create Customer</h1>
             <form action="/customer/create" method="post" th:object="${customerDto}">
                 <table>
                     <div class="col-md-12">
@@ -79,9 +78,9 @@
             </form>
         </div>
         <div class="col-lg-3">
-            <img src="img\4056083.jpg" class="w-100 " style="height: 300px">
-            <img src="img\biet-thu.jpg" class="w-100 mt-3" style="height: 300px">
+            <img src="..\img\4056083.jpg" class="w-100 " style="height: 300px">
+            <img src="..\img\biet-thu.jpg" class="w-100 mt-3" style="height: 300px">
         </div>
     </div>
 </div>
-<script src="js/bootstrap.min.js"></script>
+<script src="..\js/bootstrap.min.js"></script>
