@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<p>
+    <a href="/shop">Shop</a>
+</p>
+<h1>Your Cart</h1>
+<form th:action="@{/shop}">
+    <h3>Total Items: <span th:text="${counts}"></span></h3>
+
+    <table border="1">
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Link</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="items, status: ${cartList.values()}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${items.name}"></td>
+            <td><img th:src="${items.link}" style="height: 50px" width="100px"></td>
+            <td>
+                <a id="decrease_button" th:href="@{/decreate/__${items.id}__(action='show')} "
+                   th:text="${'-'}"></a>
+                <span th:text="${items.quantity}"></span>
+                <a id="increase_button" th:href="@{/add/__${items.id}__(action='show')}"
+                   th:text="${'+'}"></a>
+            </td>
+            <td th:text="${items.price}"></td>
+            <td style="text-align: center">
+                <button th:onclick=|showInfoDelete(${items.id})| type="button" class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#delete">
+                    Delete
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td th:text="${total}"></td>
+        </tr>
+
+    </table>
+    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="/delete" method="post">
+                    <div class="modal-body">
+                        Bạn muốn xóa?
+                        <input type="text" id="deleteid" name="id">
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-secondary">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function showInfoDelete(id) {
+        document.getElementById("deleteid").value = id;
+    }
+</script>
+<script src="/js/bootstrap.js"></script>
+</body>
+
+</html>

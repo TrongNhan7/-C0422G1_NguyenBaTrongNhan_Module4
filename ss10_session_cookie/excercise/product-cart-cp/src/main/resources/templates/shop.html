@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+<body style="background: hotpink">
+<header class="row" style="height: 120px;">
+    <div class="col-sm-12 col-lg-12 ">
+        <nav class=" text-center">
+                <a href="/shopping-cart" class=" btn btn-success text-decoration-none mt-5" >Your cart</a>
+        </nav>
+    </div>
+</header>
+
+<table border="1">
+
+    <div class="container">
+        <div class="row">
+            <th:block th:each="product:${products}">
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;height: 20rem">
+                        <img th:src="${product.link}" class="card-img-top" style="height: 10rem">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${product.name}">Card title</h5>
+                            <p class="card-text" th:text="${product.price}"></p>
+                            <a th:href="@{/add/__${product.id}__(action='list')}"
+                               class="btn btn-outline-primary p-3" >Add To Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</table>
+</body>
+<script src="/js/bootstrap.js"></script>
+</html>
