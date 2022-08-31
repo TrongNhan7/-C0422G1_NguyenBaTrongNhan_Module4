@@ -81,4 +81,10 @@ public class ShoppingCartController {
         iCartService.remove(carts, id);
         return "redirect:/shopping-cart";
     }
+
+    @GetMapping("/clear")
+    public String clear(@ModelAttribute(value = "carts") Map<Integer, Cart> carts) {
+        carts.clear();
+        return "redirect:/shopping-cart";
+    }
 }

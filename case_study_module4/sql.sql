@@ -116,4 +116,6 @@ FROM
 end $$
 delimiter ;
 
-call find_by_sp();
+call find_by_sp("Diamond");
+
+select * from customer where customer_name like concat('%',"",'%') and `status` = 0;

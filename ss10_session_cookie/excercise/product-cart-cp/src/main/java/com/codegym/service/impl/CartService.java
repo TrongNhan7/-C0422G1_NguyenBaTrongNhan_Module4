@@ -52,4 +52,8 @@ public class CartService implements ICartService {
         }
         return count;
     }
+
+    public void clear(Map<Integer, Cart> cartMap){
+        cartMap.clear();
+    }
 }
