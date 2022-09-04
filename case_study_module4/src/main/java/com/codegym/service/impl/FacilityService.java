@@ -21,21 +21,26 @@ public class FacilityService implements IFacilityService {
         if (type == null) {
             return iFacilityRepository.findAllByNameServiceContaining(pageable, keywordVal);
         }
-        return iFacilityRepository.findAllByNameServiceContainingAndAndFacilityType(pageable, keywordVal, type);
+        return iFacilityRepository.findAllByNameServiceContainingAndFacilityType(pageable, keywordVal, type);
+    }
+
+    @Override
+    public Page<Facility> findAll(Pageable pageable) {
+        return iFacilityRepository.findAll(pageable);
     }
 
     @Override
     public Facility save(Facility facility) {
-        return null;
+        return iFacilityRepository.save(facility);
     }
 
     @Override
     public Facility findById(Integer id) {
-        return null;
+        return iFacilityRepository.findById(id).orElse(null);
     }
 
     @Override
     public void deleteById(Integer id) {
-
+        iFacilityRepository.deleteById(id);
     }
 }

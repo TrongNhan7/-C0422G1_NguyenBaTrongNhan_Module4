@@ -1,6 +1,5 @@
 package com.codegym.dto;
 
-import com.codegym.model.facility.Facility;
 import com.codegym.model.facility.FacilityType;
 import com.codegym.model.facility.RentType;
 import org.springframework.validation.Errors;
@@ -11,24 +10,26 @@ import javax.validation.constraints.NotBlank;
 
 public class FacilityDto implements Validator {
 
+    private Integer id;
+
     @NotBlank(message = "Nhập vào đi bạn ơi!")
     private String nameService;
 
-    @NotBlank(message = "Nhập vào đi bạn ơi!")
-    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
+    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
+//    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
     private Integer area;
 
-    @NotBlank(message = "Nhập vào đi bạn ơi!")
-    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
-    private double cost;
+    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
+////    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
+    private Double cost;
 
     private Integer maxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
 
-    @NotBlank(message = "Nhập vào đi bạn ơi!")
-    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
-    private double areaPool;
+    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
+////    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
+    private Double areaPool;
 
     private Integer numberOfFloors;
     private String freeService;
@@ -38,7 +39,8 @@ public class FacilityDto implements Validator {
     public FacilityDto() {
     }
 
-    public FacilityDto(String nameService, Integer area, double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, double areaPool, Integer numberOfFloors, String freeService, RentType rentType, FacilityType facilityType) {
+    public FacilityDto(Integer id, @NotBlank(message = "Nhập vào đi bạn ơi!") String nameService, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double areaPool, Integer numberOfFloors, String freeService, RentType rentType, FacilityType facilityType) {
+        this.id = id;
         this.nameService = nameService;
         this.area = area;
         this.cost = cost;
@@ -50,6 +52,14 @@ public class FacilityDto implements Validator {
         this.freeService = freeService;
         this.rentType = rentType;
         this.facilityType = facilityType;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNameService() {
@@ -68,11 +78,11 @@ public class FacilityDto implements Validator {
         this.area = area;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
@@ -100,11 +110,11 @@ public class FacilityDto implements Validator {
         this.descriptionOtherConvenience = descriptionOtherConvenience;
     }
 
-    public double getAreaPool() {
+    public Double getAreaPool() {
         return areaPool;
     }
 
-    public void setAreaPool(double areaPool) {
+    public void setAreaPool(Double areaPool) {
         this.areaPool = areaPool;
     }
 

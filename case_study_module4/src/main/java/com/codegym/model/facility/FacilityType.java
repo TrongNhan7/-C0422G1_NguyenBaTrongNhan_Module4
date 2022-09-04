@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "facility_type")
+    @Table(name = "facility_type")
 public class FacilityType {
 
     @Id

@@ -3,20 +3,19 @@ package com.codegym.model.facility;
 import com.codegym.model.contract.Contract;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "facility")
 public class Facility {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name = "name_service")
     private String nameService;
     private Integer area;
-    private double cost;
+    private Double cost;
 
     @Column(name = "max_people")
     private Integer maxPeople;
@@ -25,8 +24,8 @@ public class Facility {
     @Column(name = "description_other_convenience")
     private String descriptionOtherConvenience;
     @Column(name = "area_pool")
-    private double areaPool;
-    @Column(name = "number_off_floors")
+    private Double areaPool;
+    @Column(name = "number_of_floors")
     private Integer numberOfFloors;
     @Column(name = "free_service")
     private String freeService;
@@ -46,7 +45,7 @@ public class Facility {
     public Facility() {
     }
 
-    public Facility(Integer id, String nameService, Integer area, double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, double areaPool, Integer numberOfFloors, String freeService, RentType rentType, FacilityType facilityType, Set<Contract> contractSet) {
+    public Facility(Integer id, String nameService, Integer area, Double cost, Integer maxPeople, String standardRoom, String descriptionOtherConvenience, Double areaPool, Integer numberOfFloors, String freeService, RentType rentType, FacilityType facilityType, Set<Contract> contractSet) {
         this.id = id;
         this.nameService = nameService;
         this.area = area;
@@ -86,11 +85,11 @@ public class Facility {
         this.area = area;
     }
 
-    public double getCost() {
+    public Double getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(Double cost) {
         this.cost = cost;
     }
 
@@ -118,11 +117,11 @@ public class Facility {
         this.descriptionOtherConvenience = descriptionOtherConvenience;
     }
 
-    public double getAreaPool() {
+    public Double getAreaPool() {
         return areaPool;
     }
 
-    public void setAreaPool(double areaPool) {
+    public void setAreaPool(Double areaPool) {
         this.areaPool = areaPool;
     }
 

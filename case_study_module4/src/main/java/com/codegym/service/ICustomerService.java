@@ -10,6 +10,8 @@ public interface ICustomerService {
 
     Page<Customer> findAllByName(String keywordVal, Pageable pageable);
 
+    Page<Customer> findAll(Pageable pageable);
+
     Customer save(Customer customer);
 
     Customer findById(int id);

@@ -10,16 +10,16 @@
 <div style="text-align: center">
     <h1>CONTRACT</h1>
 </div>
-<!--<div th:if="${mess != null}">-->
-<!--    <p style="color: red" th:text="${mess}"></p>-->
-<!--</div>-->
+<div th:if="${mess != null}">
+    <p style="color: red" th:text="${mess}"></p>
+</div>
 <div class="container-fluid position-relative">
     <div class="row">
         <div class="col-lg-10 d-flex justify-content-center  position-absolute" style="top: 10%">
             <div class="row">
                 <table class="table table-hover">
                     <tr>
-                        <th>#</th>
+                        <th>STT</th>
                         <th>Service</th>
                         <th>Customer</th>
                         <th>Check-in</th>
@@ -28,14 +28,16 @@
                         <th>Total</th>
                         <th>Accompanied service</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                    <tr th:each="contract,status: ${contractList}">
+                        <td th:text="${status.count}"></td>
+                        <td th:text="${contract.facility.nameService}"></td>
+                        <td th:text="${contract.customer.customerName}"></td>
+                        <td th:text="${contract.startDate}"></td>
+                        <td th:text="${contract.endDate}"></td>
+                        <td th:text="${contract.deposit}"></td>
+                        <td th:text="${contract.totalMoney}"></td>
+
+
                         <td>
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#newContract"><span class="material-symbols-outlined">add</span>
@@ -46,6 +48,13 @@
                         </td>
                     </tr>
                 </table>
+                <div>
+                    <a th:href="@{'/contract'(page=${contractList.number - 1})}"
+                       th:if="${contractList.hasPrevious()}">Previous</a>
+                    <span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span>
+                    <a th:href="@{'/contract'(page=${contractList.number + 1})}"
+                       th:if="${contractList.hasNext()}">Next</a>
+                </div>
             </div>
         </div>
 

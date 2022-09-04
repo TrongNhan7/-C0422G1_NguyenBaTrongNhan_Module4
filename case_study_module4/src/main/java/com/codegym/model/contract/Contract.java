@@ -10,12 +10,14 @@ import java.util.Set;
 
 @Entity
 @Table
+//@NamedStoredProcedureQueries({@NamedStoredProcedureQuery(name="firstProcedure",procedureName="list_contract")})
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column(name = "start_date")
     private String startDate;
+    @Column(name = "end_date")
     private String endDate;
     private double deposit;
 
@@ -34,6 +36,7 @@ public class Contract {
     @OneToMany(mappedBy = "contract")
     private Set<ContractDetail> contractDetailSet;
 
+    @Transient
     private double totalMoney;
 
     public Contract() {

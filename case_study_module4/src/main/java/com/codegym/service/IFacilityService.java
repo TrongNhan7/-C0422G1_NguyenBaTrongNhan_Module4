@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 public interface IFacilityService {
     Page<Facility> findAllByName(Pageable pageable, String keywordVal, FacilityType type);
 
+    Page<Facility> findAll(Pageable pageable);
+
     Facility save(Facility facility);
 
     Facility findById(Integer id);

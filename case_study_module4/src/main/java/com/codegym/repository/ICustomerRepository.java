@@ -15,4 +15,6 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
             countQuery = "select count(*) from (select * from customer where customer_name like concat('%',:keyword,'%') and `status` = 0) customer")
     Page<Customer> findAllByName(@Param("keyword") String keywordVal, Pageable pageable);
 
+    @Query(value = "select * from customer where `status` = 0", nativeQuery = true)
+    Page<Customer> findAll(Pageable pageable);
 }

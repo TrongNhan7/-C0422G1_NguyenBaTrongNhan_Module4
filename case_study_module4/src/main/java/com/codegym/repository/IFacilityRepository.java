@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface IFacilityRepository extends JpaRepository<Facility, Integer> {
     Page<Facility> findAllByNameServiceContaining(Pageable pageable, String name);
 
-    Page<Facility> findAllByNameServiceContainingAndAndFacilityType(Pageable pageable, String name, FacilityType type);
+    Page<Facility> findAllByNameServiceContainingAndFacilityType(Pageable pageable, String name, FacilityType type);
 
 }
