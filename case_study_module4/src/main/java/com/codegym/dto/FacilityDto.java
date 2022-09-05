@@ -2,38 +2,26 @@ package com.codegym.dto;
 
 import com.codegym.model.facility.FacilityType;
 import com.codegym.model.facility.RentType;
+import com.codegym.util.Validation;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 public class FacilityDto implements Validator {
 
     private Integer id;
-
-    @NotBlank(message = "Nhập vào đi bạn ơi!")
     private String nameService;
-
-    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
-//    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
     private Integer area;
-
-    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
-////    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
     private Double cost;
-
     private Integer maxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
-
-    //    @NotBlank(message = "Nhập vào đi bạn ơi!")
-////    @Min(value = 0, message = "Nhập số lớn hơn 0 nha!")
     private Double areaPool;
-
     private Integer numberOfFloors;
     private String freeService;
     private RentType rentType;
+
     private FacilityType facilityType;
 
     public FacilityDto() {
@@ -160,13 +148,28 @@ public class FacilityDto implements Validator {
         FacilityDto facilityDto = (FacilityDto) target;
 
         String maxPeople = String.valueOf(facilityDto.getMaxPeople());
-        if (!maxPeople.matches("[0-9]+")) {
-            errors.rejectValue("maxPeople", "maxPeople.create", "Phải số nguyên dương nha");
-        }
+        Validation.checkInteger("maxPeople", maxPeople, errors);
 
-        String numberOfFloors = String.valueOf((facilityDto.getNumberOfFloors()));
-        if (!maxPeople.matches("[0-9]+")) {
-            errors.rejectValue("numberOfFloors", "numberOfFloors.create", "Phải số nguyên dương nha");
+        String area = String.valueOf((facilityDto.getArea()));
+        Validation.checkInteger("area", area, errors);
+
+        Double cost = facilityDto.getCost();
+        Validation.checkDouble("cost", cost, errors);
+
+        String nameService = facilityDto.getNameService();
+        Validation.checkFacilityName("nameService", nameService, errors);
+
+        if (facilityDto.getFacilityType() != null) {
+            Integer facilityTypeId = facilityDto.getFacilityType().getId();
+            if (facilityTypeId < 2) {
+                Double areaPool = facilityDto.getAreaPool();
+                Validation.checkDouble("areaPool", areaPool, errors);
+            }
+            if (facilityTypeId < 3) {
+                String numberOfFloors = String.valueOf((facilityDto.getNumberOfFloors()));
+                Validation.checkInteger("numberOfFloors", numberOfFloors, errors);
+            }
         }
     }
+
 }

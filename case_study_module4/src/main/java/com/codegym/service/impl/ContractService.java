@@ -27,18 +27,13 @@ public class ContractService implements IContractService {
     }
 
     @Override
-    public List<Contract> findAll() {
-        return iContractRepository.findAll();
-    }
-
-    @Override
     public Double findTotalMoney(Integer id) {
         return iContractRepository.findTotalMoney(id);
     }
 
     @Override
     public Contract save(Contract contract) {
-        return null;
+        return iContractRepository.save(contract);
     }
 
     @Override

@@ -27,8 +27,9 @@
                     <label for="facilityType" class="form-label">Loại dịch vụ</label>
                     <select id="facilityType" name="type" onchange="chooseServiceType()"
                             th:field="*{facilityType.id}" class="form-select">
-                        <option value="None">Chọn loại dịch vụ</option>
-                        <option th:each="type : ${facilityType}" th:value="${type.id}"
+                        <option value="0">Chọn loại dịch vụ</option>
+                        <option th:each="type : ${facilityType}"
+                                th:value="${type.id}"
                                 th:text="${type.name}"></option>
                     </select>
                 </div>
@@ -69,10 +70,17 @@
                 </div>
 
                 <div class="col-md-12 " id="standard_room" style="display: none">
-                    <label for="standardRoom" class="form-label">Tiêu chuẩn phòng </label>
-                    <input type="text" class="form-control" id="standardRoom" name="standard_room"
-                           th:field="*{standardRoom}">
-                    <div class="mb-4 text-danger" th:errors="*{standardRoom}"></div>
+                    <label class="form-label">Tiêu chuẩn phòng </label>
+                    <select name="rentalType" class="form-select" th:field="*{standardRoom}">
+                        <option value="">Chọn phòng</option>
+                        <option th:text="Normal"
+                                th:value="Normal">
+                        </option>
+                        <option th:text="Vip"
+                                th:value="Vip">
+                        </option>
+
+                    </select>
                 </div>
 
                 <div class="col-md-12 " id="description_other_convenience" style="display: none">
@@ -122,7 +130,7 @@
     function chooseServiceType() {
         let type = document.getElementById("facilityType").value;
         switch (type) {
-            case 'None':
+            case '0':
                 document.getElementById("standard_room").style.display = "none";
                 document.getElementById("description_other_convenience").style.display = "none";
                 document.getElementById("pool_area").style.display = "none";

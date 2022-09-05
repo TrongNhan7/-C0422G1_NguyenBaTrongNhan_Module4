@@ -12,8 +12,6 @@ public interface IContractService {
 
     Page<Contract> findAll(Pageable pageable);
 
-    List<Contract> findAll();
-
     Double findTotalMoney(Integer id);
 
     Contract save(Contract contract);
