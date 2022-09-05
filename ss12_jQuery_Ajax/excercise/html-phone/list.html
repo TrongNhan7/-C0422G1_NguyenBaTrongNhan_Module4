@@ -141,7 +141,7 @@
             type: "GET",
             url: `http://localhost:8080/smartphones/edit/${id}`,
             success: function (smartphoneOptional) {
-                document.getElementById('edit').innerHTML = getPhoneEdit(smartphoneOptional);
+                    $("#edit").html(getPhoneEdit(smartphoneOptional));
             }
         });
     }
