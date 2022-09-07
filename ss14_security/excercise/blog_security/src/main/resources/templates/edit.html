@@ -8,6 +8,7 @@
           crossorigin="anonymous">
 </head>
 <body>
+<th:block th:include="/_menu"></th:block>
 <nav th:replace="/layout::header"></nav>
 <h1 class="p-3 text-center text-white ">CẬP NHẬT BLOG</h1>
 <form action="/edit" method="post" th:object="${blog}">

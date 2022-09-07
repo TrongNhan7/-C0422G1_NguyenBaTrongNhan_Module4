@@ -10,7 +10,7 @@
 <body>
 <nav th:replace="/layout::header"></nav>
 <h1 class="p-3 text-center text-white ">THÊM BLOG</h1>
-<form action="/create" method="post" th:object="${blog}">
+<form action="/blog/create" method="post" th:object="${blog}">
     <div class="mb-3">
         <label for="title" class="form-label">Nhập tiêu đề</label>
         <input type="text" class="form-control" id="title" th:field="*{title}" required>
