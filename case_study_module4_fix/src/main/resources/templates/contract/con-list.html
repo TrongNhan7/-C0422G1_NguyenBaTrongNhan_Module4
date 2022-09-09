@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<nav th:replace="~{layout::header}"></nav>
+<div style="text-align: center">
+    <h1>CONTRACT</h1>
+</div>
+<div th:if="${mess != null}">
+    <p style="color: red" th:text="${mess}"></p>
+</div>
+<div class="container-fluid position-relative">
+    <div class="row">
+        <div class="col-lg-10 d-flex justify-content-center  position-absolute" style="top: 10%">
+            <div class="row">
+                <table class="table table-hover">
+                    <tr>
+                        <th>STT</th>
+                        <th>Service</th>
+                        <th>Customer</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Deposit</th>
+                        <th>Total</th>
+                        <th>Accompanied service</th>
+                    </tr>
+                    <tr th:each="contract,status: ${contractList}">
+                        <td th:text="${status.count}"></td>
+                        <td th:text="${contract.facility.nameService}"></td>
+                        <td th:text="${contract.customer.customerName}"></td>
+                        <td th:text="${contract.startDate}"></td>
+                        <td th:text="${contract.endDate}"></td>
+                        <td th:text="${contract.deposit}"></td>
+                        <td th:text="${contract.totalMoney}"></td>
+
+
+                        <td>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    th:attr="onclick=|showInfoCreate('${contract.id}')|"
+                                    data-bs-target="#newContractDetail"><span
+                                    class="material-symbols-outlined">+</span>
+                            </button>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    data-bs-target="#attach"
+                                    th:attr="onclick=|showInfo('${contract.id}')|">
+                                List of accompanied service
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    <a th:href="@{'/contract'(page=${contractList.number - 1})}"
+                       th:if="${contractList.hasPrevious()}">Previous</a>
+                    <span th:text="${contractList.number + 1}"></span>/<span
+                        th:text="${contractList.totalPages}"></span>
+                    <a th:href="@{'/contract'(page=${contractList.number + 1})}"
+                       th:if="${contractList.hasNext()}">Next</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="newContractDetail" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Create new Contract Detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!--                        <form th:object="${contractDetailDto}">-->
+
+                        <div class="row">
+                            <div>
+                                <label for="attachFacilityId" class="form-label">Attach Facility</label>
+                                <select id="attachFacilityId" class="form-select">
+                                    <option th:each="attach : ${attachFacilityList}"
+                                            th:value="${attach.id}"
+                                            th:text="${attach.name} + '------ Giá thuê: ' + ${attach.cost}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3"><span>Quantity</span></div>
+                            <div class="col-lg-9"><input class="form-control" type="number" id="quantity">
+                            </div>
+                            <!--                                <div class="mb-4 text-danger" th:errors="*{quantity}"></div>-->
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="create-detail">create</button>
+                        </div>
+                        <!--                        </form>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="attach" tabindex="-1" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="bodyAttach">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="close()">Close
+                        </button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/bootstrap.js"></script>
+
+<script src="Jquery/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    function showInfoCreate(id) {
+        $("#create-detail").click(function () {
+            let contractId = id;
+            let attachDetail = $('#attachFacilityId').val();
+            let quantity = $('#quantity').val();
+
+            let contractDetailDto = {
+                contract: {
+                    id: contractId
+                },
+                attachFacility: {
+                    id: attachDetail
+                },
+                quantity: quantity
+            };
+            console.log(contractDetailDto);
+            // goi ajax
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST",
+                //tên API
+                data: JSON.stringify(contractDetailDto),
+                url: "http://localhost:8080/contract-detail/create",
+
+                //xử lý khi thành công
+                success: function (resultSuccess) {
+                    alert("Bạn đã thêm thành công!!!")
+                    window.location = "/contract";
+
+                },
+                error: function (resultError) {
+                    alert('Nhập Quantity > 0');
+                }
+            });
+        });
+    }
+
+    function showInfo(id) {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/contract-detail/" + id,
+            success: function (attachFacilities) {
+                console.log(attachFacilities)
+                let attachList = attachFacilities;
+                console.log(attachList);
+                let htmlStr = '';
+
+                for (let i = 0; i < attachList.length; i++) {
+                    htmlStr += `
+                              <div>${attachList[i].id}</div>
+                              <div>${attachList[i].name}</div>
+                              <div>${attachList[i].cost}</div>
+                              <div>${attachList[i].unit}</div>
+                              <div>${attachList[i].status}</div>`
+                }
+
+                $("#bodyAttach").html(htmlStr);
+
+            },
+            error: function (resultError) {
+                alert("error");
+            }
+        });
+    }
+</script>
+</body>
+</html>

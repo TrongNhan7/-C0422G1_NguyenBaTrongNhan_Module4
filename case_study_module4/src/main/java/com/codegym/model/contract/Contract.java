@@ -4,6 +4,7 @@ import com.codegym.model.customer.Customer;
 import com.codegym.model.employee.Employee;
 import com.codegym.model.employee.UserRole;
 import com.codegym.model.facility.Facility;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -20,18 +21,22 @@ public class Contract {
     @Column(name = "end_date")
     private String endDate;
     private double deposit;
-
+    private Boolean status = false;
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "facility_id", referencedColumnName = "id")
     private Facility facility;
+
 
     @OneToMany(mappedBy = "contract")
     private Set<ContractDetail> contractDetailSet;
@@ -42,11 +47,12 @@ public class Contract {
     public Contract() {
     }
 
-    public Contract(Integer id, String startDate, String endDate, double deposit, Employee employee, Customer customer, Facility facility, Set<ContractDetail> contractDetailSet, double totalMoney) {
+    public Contract(Integer id, String startDate, String endDate, double deposit, Boolean status, Employee employee, Customer customer, Facility facility, Set<ContractDetail> contractDetailSet, double totalMoney) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
         this.deposit = deposit;
+        this.status = status;
         this.employee = employee;
         this.customer = customer;
         this.facility = facility;
@@ -108,6 +114,14 @@ public class Contract {
 
     public void setFacility(Facility facility) {
         this.facility = facility;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public Set<ContractDetail> getContractDetailSet() {

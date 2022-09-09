@@ -51,7 +51,7 @@ public class FacilityController {
     }
 
     @GetMapping(value = "/create")
-    public String showCreateCustomer(Model model) {
+    public String showCreateFacility(Model model) {
         model.addAttribute("facilityDto", new FacilityDto());
         model.addAttribute("facilityType", iFacilityTypeService.findAll());
         model.addAttribute("rentType", iRentTypeService.findAll());
@@ -59,7 +59,7 @@ public class FacilityController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(@ModelAttribute(value = "facilityDto") @Valid FacilityDto facilityDto,
+    public String createFacility(@ModelAttribute(value = "facilityDto") @Valid FacilityDto facilityDto,
                                  BindingResult bindingResult, RedirectAttributes redirectAttributes,
                                  Model model) {
         new FacilityDto().validate(facilityDto, bindingResult);
@@ -79,7 +79,7 @@ public class FacilityController {
     }
 
     @GetMapping("/edit")
-    public String showEditCustomer(@RequestParam Integer id, Model model) {
+    public String showEditFacility(@RequestParam Integer id, Model model) {
         Facility facility = iFacilityService.findById(id);
         FacilityDto facilityDto = new FacilityDto();
         BeanUtils.copyProperties(facility, facilityDto);
@@ -91,7 +91,7 @@ public class FacilityController {
     }
 
     @PostMapping("/edit")
-    public String EditCustomer(@ModelAttribute(value = "facilityDto") @Valid FacilityDto facilityDto,
+    public String EditFacility(@ModelAttribute(value = "facilityDto") @Valid FacilityDto facilityDto,
                                BindingResult bindingResult,
                                RedirectAttributes redirectAttributes, Model model) {
 
@@ -111,7 +111,7 @@ public class FacilityController {
     }
 
     @GetMapping("/delete")
-    public String deleteCustomer(@RequestParam(value = "idFacility") Integer id, RedirectAttributes redirectAttributes) {
+    public String deleteFAcility(@RequestParam(value = "idFacility") Integer id, RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("mess", "Delete thành công");
         iFacilityService.deleteById(id);
         return "redirect:/facility";

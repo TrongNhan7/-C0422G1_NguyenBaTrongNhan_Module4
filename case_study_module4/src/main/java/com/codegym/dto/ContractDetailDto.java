@@ -6,8 +6,6 @@ import com.codegym.util.Validation;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 public class ContractDetailDto implements Validator {

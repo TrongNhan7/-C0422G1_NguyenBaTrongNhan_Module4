@@ -83,37 +83,37 @@
     });
 
 
-    let curPage = 0;
+        let curPage = 0;
 
-    function getSmartphone(pageNumber) {
-        $.ajax({
-            type: "GET",
-            url: "http://localhost:8080/smartphones?page=" + pageNumber,
-            success: function (smartphones) {
-                let smartphoneList = smartphones.content;
-                console.log(smartphoneList);
-                let htmlStr = '';
+        function getSmartphone(pageNumber) {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/smartphones?page=" + pageNumber,
+                success: function (smartphones) {
+                    let smartphoneList = smartphones.content;
+                    console.log(smartphoneList);
+                    let htmlStr = '';
 
-                for (let i = 0; i < smartphoneList.length; i++) {
-                    htmlStr += `<tr>
-                          <td>${smartphoneList[i].id}</td>
-                          <td>${smartphoneList[i].producer}</td>
-                          <td>${smartphoneList[i].model}</td>
-                          <td>${smartphoneList[i].price}</td>
-          <td><button onclick="updateFunction(${smartphoneList[i].id})">update</button></td>
-          <td><button onclick="deleteFunction(${smartphoneList[i].id})">Delete</button></td>
-                                  `
+                    for (let i = 0; i < smartphoneList.length; i++) {
+                        htmlStr += `<tr>
+                              <td>${smartphoneList[i].id}</td>
+                              <td>${smartphoneList[i].producer}</td>
+                              <td>${smartphoneList[i].model}</td>
+                              <td>${smartphoneList[i].price}</td>
+              <td><button onclick="updateFunction(${smartphoneList[i].id})">update</button></td>
+              <td><button onclick="deleteFunction(${smartphoneList[i].id})">Delete</button></td>
+                                      `
+                    }
+
+                    $("#bodyPhone").html(htmlStr);
+                },
+                error: function (resultError) {
+
                 }
+            });
+        }
 
-                $("#bodyPhone").html(htmlStr);
-            },
-            error: function (resultError) {
-
-            }
-        });
-    }
-
-    getSmartphone(curPage);
+        getSmartphone(curPage);
 
     function deleteFunction(id) {
         $.ajax({

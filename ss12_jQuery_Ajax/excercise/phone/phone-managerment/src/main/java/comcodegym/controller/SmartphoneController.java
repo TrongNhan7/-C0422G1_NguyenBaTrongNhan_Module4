@@ -32,7 +32,7 @@ public class SmartphoneController {
         if (!smartphones.hasContent()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(smartphones, HttpStatus.OK);
+            return new ResponseEntity<>(smartphones, HttpStatus.OK);
     }
 
     @GetMapping("/list")

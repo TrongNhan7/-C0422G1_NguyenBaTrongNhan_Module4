@@ -51,18 +51,19 @@ VALUES ("Nguyễn Thị Hào", "1970-11-07", 0, "643431213", "0945423362", "thih
 ("Trần Đại Danh", "1994-07-01", 1, "432341235", "0643343433", "danhhai99@gmail.com", "24 Lý Thường Kiệt, Quảng Ngãi", 1, 0),
 ("Nguyễn Tâm Đắc", "1989-07-01", 1, "344343432", "0987654321", "dactam@gmail.com", "22 Ngô Quyền, Đà Nẵng", 2, 0);
 
-insert into kieu_thue(ma_kieu_thue,ten_kieu_thue)
+insert into rent_type(id,`name`)
 values ("1","year"),
 	("2","month"),
 	("3","day"),
 	("4","hour");
     
-insert into loai_dich_vu(ma_loai_dich_vu,ten_loai_dich_vu)
+insert into facility_type(id,`name`)
 values (1,"Villa"),
 	(2,"House"),
 	(3,"Room");
 
-INSERT INTO  dich_vu(ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem, ma_kieu_thue, ma_loai_dich_vu)
+INSERT INTO  facility(name_service, area, cost, max_people, standard_room, description_other_convenience, area_pool,
+ number_of_floors, free_service, rent_type_id, facility_type_id)
 VALUES ("Villa Beach Front", 25000, "1000000", "10", "vip", "Có hồ bơi", 500, 4, null, "3", "1"),
 ("House Princess 01", 14000, "5000000", "7", "vip", "Có thêm bếp nướng", null, 3, null, "2", "2"),
 ("Room Twin 01", 5000, "1000000", "2", "normal", "Có tivi", null, null, "1 Xe máy, 1 Xe đạp", "4", "3"),
@@ -70,7 +71,7 @@ VALUES ("Villa Beach Front", 25000, "1000000", "10", "vip", "Có hồ bơi", 500
 ("House Princess 02", 1000, "4000000", "5", "normal", "Có thêm bếp nướng", null, 2, null, "3", "2"),
 ("Room Twin 02", 3000, "900000", "2", "normal", "Có tivi", null, null, "1 Xe máy", "4", "3");
 
-INSERT INTO  dich_vu_di_kem(ma_dich_vu_di_kem, ten_dich_vu_di_kem, gia, don_vi, trang_thai)
+INSERT INTO  attach_facility(id, `name`, cost, unit, status_facility)
 VALUES ("1", "Karaoke", 10000, "giờ", "tiện nghi, hiện tại"),
 ("2","Thuê xe máy", 10000, "chiếc", "hỏng 1 xe"),
 ("3","Thuê xe đạp", 20000, "chiếc", "tốt"),
@@ -78,21 +79,21 @@ VALUES ("1", "Karaoke", 10000, "giờ", "tiện nghi, hiện tại"),
 ("5","Buffet buổi trưa", 90000,"suất", " đầy đủ đồ ăn, tráng miệng "),
 ("6","Buffet buổi tối", 16000,"suất", " đầy đủ đồ ăn, tráng miệng ");
 
-INSERT INTO hop_dong (ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ma_nhan_vien, ma_khach_hang, ma_dich_vu) 
-VALUES ("2020-12-08", "2020-12-08", "0", "3", "1", "3"),
-("2020-07-14", "2020-07-21", "200000", "7", "3", "1"),
-("2021-03-15", "2021-03-17", "50000", "3", "4", "2"),	
-("2021-01-14", "2021-01-18", "100000", "7", "5", "5"),
-("2021-07-14", "2021-07-15", "0", "7", "2", "6"),
-("2021-06-01", "2021-06-03", "0", "7", "7", "6"),
-("2021-09-02", "2021-09-05", "100000", "7", "4", "4"),
-("2021-06-17", "2021-06-18", "150000", "3", "4", "1"),
-("2020-11-19", "2020-11-19", "0", "3", "4", "3"),
-("2021-04-12", "2021-04-14", "0", "10", "3", "5"),
-("2021-04-25", "2021-04-25", "0", "2", "2", "1"),
-("2021-05-25", "2021-05-27", "0", "7", "10", "1");
+INSERT INTO contract (start_date, end_date, deposit, employee_id, customer_id, facility_id,`status`) 
+VALUES ("2020-12-08", "2020-12-08", "0", "3", "1", "3", 0),
+("2020-07-14", "2020-07-21", "200000", "7", "3", "1", 0),
+("2021-03-15", "2021-03-17", "50000", "3", "4", "2", 0),	
+("2021-01-14", "2021-01-18", "100000", "7", "5", "5", 0),
+("2021-07-14", "2021-07-15", "0", "7", "2", "6", 0),
+("2021-06-01", "2021-06-03", "0", "7", "7", "6" ,0),
+("2021-09-02", "2021-09-05", "100000", "7", "4", "4", 0),
+("2021-06-17", "2021-06-18", "150000", "3", "4", "1", 0),
+("2020-11-19", "2020-11-19", "0", "3", "4", "3", 0),
+("2021-04-12", "2021-04-14", "0", "10", "3", "5", 0),
+("2021-04-25", "2021-04-25", "0", "2", "2", "1", 0),
+("2021-05-25", "2021-05-27", "0", "7", "10", "1", 0);
 
-INSERT INTO hop_dong_chi_tiet (ma_hop_dong_chi_tiet, so_luong, ma_hop_dong, ma_dich_vu_di_kem) 
+INSERT INTO contract_detail (id, quantity, contract_id, attach_facility_id) 
 VALUES ("1", "5", "2", "4"),
 ("2", "8", "2", "5"),
 ("3", "15", "2", "6"),	
