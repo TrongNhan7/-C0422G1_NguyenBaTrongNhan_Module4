@@ -22,4 +22,5 @@ public interface IAttachFacilityRepository extends JpaRepository<AttachFacility,
             "    contract c ON cd.contract_id = c.id\n" +
             "    where c.id = :id",nativeQuery = true)
     List<AttachFacility> findAllByIdContract(@Param("id") Integer id);
+
 }

@@ -64,7 +64,7 @@
                         </select>
                     </div>
                     <div class="col-md-12 ">
-                        <label for="customerTypeId" class="form-label">CustomerTypeId</label>
+                        <label for="customerTypeId" class="form-label">Type Customer</label>
                         <select id="customerTypeId" th:field="*{customerType.id}" class="form-select">
                             <option th:each="c : ${typeList}" th:value="${c.id}"
                                     th:text="${c.name}"></option>

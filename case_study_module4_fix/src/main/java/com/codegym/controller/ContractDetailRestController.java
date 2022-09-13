@@ -56,7 +56,10 @@ public class ContractDetailRestController {
             return new ResponseEntity<>(contractDetailDto, HttpStatus.BAD_REQUEST);
         }
         ContractDetail contractDetail = new ContractDetail();
-        BeanUtils.copyProperties(contractDetailDto, contractDetail);
+        contractDetail.setContract(contractDetailDto.getContract());
+        contractDetail.setAttachFacility(contractDetailDto.getAttachFacility());
+        contractDetail.setQuantity(contractDetailDto.getQuantity());
+//        BeanUtils.copyProperties(contractDetailDto, contractDetail);
         iContractDetailService.save(contractDetail);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -22,12 +22,12 @@ public class ContractDto implements Validator {
     private Customer customer;
     @NotNull(message = "Chọn gì đó đi fren!")
     private Facility facility;
-    private double totalMoney;
+    private Double totalMoney;
 
     public ContractDto() {
     }
 
-    public ContractDto(Integer id, String startDate, String endDate, double deposit, @NotBlank(message = "Chọn gì đó đi fren!") Employee employee, @NotBlank(message = "Chọn gì đó đi fren!") Customer customer, @NotBlank(message = "Chọn gì đó đi fren!") Facility facility, double totalMoney) {
+    public ContractDto(Integer id, String startDate, String endDate, double deposit, @NotBlank(message = "Chọn gì đó đi fren!") Employee employee, @NotBlank(message = "Chọn gì đó đi fren!") Customer customer, @NotBlank(message = "Chọn gì đó đi fren!") Facility facility, Double totalMoney) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -94,11 +94,11 @@ public class ContractDto implements Validator {
         this.facility = facility;
     }
 
-    public double getTotalMoney() {
+    public Double getTotalMoney() {
         return totalMoney;
     }
 
-    public void setTotalMoney(double totalMoney) {
+    public void setTotalMoney(Double totalMoney) {
         this.totalMoney = totalMoney;
     }
 

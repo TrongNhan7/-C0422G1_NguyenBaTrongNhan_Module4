@@ -6,33 +6,44 @@ import javax.persistence.*;
 @Table(name = "user_role")
 public class UserRole {
 
-    @EmbeddedId
-    private UserRoleKey id;
+//    @EmbeddedId
+//    private UserRoleKey id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
-    @MapsId("username")
     @JoinColumn(name = "username")
     private User user;
 
     @ManyToOne
-    @MapsId("roleId")
     @JoinColumn(name = "role_id")
     private Role role;
 
     public UserRole() {
     }
+//
+//    public UserRole(UserRoleKey id, User user, Role role) {
+//        this.id = id;
+//        this.user = user;
+//        this.role = role;
+//    }
+//
+//    public UserRoleKey getId() {
+//        return id;
+//    }
+//
+//    public void setId(UserRoleKey id) {
+//        this.id = id;
+//    }
 
-    public UserRole(UserRoleKey id, User user, Role role) {
-        this.id = id;
-        this.user = user;
-        this.role = role;
-    }
 
-    public UserRoleKey getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UserRoleKey id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

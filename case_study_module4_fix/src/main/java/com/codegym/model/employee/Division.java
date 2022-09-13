@@ -1,5 +1,7 @@
 package com.codegym.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -12,6 +14,7 @@ public class Division {
     private Integer id;
     private String name;
 
+    @JsonBackReference(value = "division")
     @OneToMany(mappedBy = "division")
     private Set<Employee> employeeSet;
 

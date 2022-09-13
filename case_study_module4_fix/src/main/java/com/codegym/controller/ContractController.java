@@ -51,8 +51,7 @@ public class ContractController {
 
     @ModelAttribute(value = "contractList")
     public Page<Contract> getAllContract(@PageableDefault(size = 5, sort = "id",
-            direction = Sort.Direction.ASC)
-                                                 Pageable pageable) {
+            direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Contract> contractList = this.iContractService.findAll(pageable);
         return contractList;
     }
@@ -96,6 +95,7 @@ public class ContractController {
         model.addAttribute("customerList", iCustomerService.findAll(pageable));
         model.addAttribute("facilityList", iFacilityService.findAll(pageable));
         model.addAttribute("attachFacilityList", iAttachFacilityService.findAll());
+        model.addAttribute("contractLast", iContractService.findContractLast());
         return "/contract/con-create";
     }
 

@@ -38,7 +38,7 @@ public class Contract {
     private Set<ContractDetail> contractDetailSet;
 
     @Transient
-    private double totalMoney;
+    private Double totalMoney;
 
     public Contract() {
     }
@@ -115,11 +115,11 @@ public class Contract {
         this.contractDetailSet = contractDetailSet;
     }
 
-    public double getTotalMoney() {
+    public Double getTotalMoney() {
         return totalMoney;
     }
 
-    public void setTotalMoney(double totalMoney) {
+    public void setTotalMoney(Double totalMoney) {
         this.totalMoney = totalMoney;
     }
 }

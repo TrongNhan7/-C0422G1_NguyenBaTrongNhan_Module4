@@ -1,57 +1,50 @@
-package com.codegym.model.employee;
+package com.codegym.dto;
 
+import com.codegym.model.employee.Division;
+import com.codegym.model.employee.Education;
+import com.codegym.model.employee.Position;
+import com.codegym.model.employee.User;
 
-import javax.persistence.*;
+import javax.validation.constraints.*;
 
-@Entity
-@Table
-public class Employee {
+public class EmployeeDto{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Pattern(regexp = "^[A-Z][A-Za-z]*(\\s[A-Z][A-Za-z]*){0,20}$",
+            message = "Nhập chữ cái đàu viết hoa")
     private String name;
+
+    @NotNull(message = "Nhập gì đó đi !")
     private String birthday;
-    @Column(name = "id_card")
+
+    @Pattern(regexp = "^[0-9]{9}|[0-9]{12}$",
+            message = "Nhập Cmnd phải 9 hoặc 12 số")
     private String idCard;
+
+    @Min(value = 0, message = "Nhập số lớn hơn 0")
     private Double salary;
-    @Column(name = "phone_number")
+
+    @Pattern(regexp = "^((090)|(091)|(\\\\(84\\\\)+90)|(\\\\(84\\\\)+91))[0-9]{7}$",
+            message = "Nhập số điện thoại Việt Nam")
     private String phoneNumber;
+
+    @Email(message = "Email phải đúng định dạng vd: giothoitb7@gmail.com")
     private String email;
+
+    @NotBlank(message = "Nhập vào đi bạn ơi!")
     private String address;
 
-    @ManyToOne
-    @JoinColumn(name = "position_id", referencedColumnName = "id")
+
     private Position position;
 
-    @ManyToOne
-    @JoinColumn(name = "education_id", referencedColumnName = "id")
     private Education education;
 
-    @ManyToOne
-    @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
-    @ManyToOne
-    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
     private User user;
 
-    public Employee() {
-    }
-
-    public Employee(Integer id, String name, String birthday, String idCard, Double salary, String phoneNumber, String email, String address, Position position, Education education, Division division, User user) {
-        this.id = id;
-        this.name = name;
-        this.birthday = birthday;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.position = position;
-        this.education = education;
-        this.division = division;
-        this.user = user;
+    public EmployeeDto() {
     }
 
     public Integer getId() {
@@ -149,4 +142,6 @@ public class Employee {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 }

@@ -1,5 +1,7 @@
 package com.codegym.model.facility;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -13,6 +15,7 @@ public class RentType {
     private Integer id;
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "rentType")
     private Set<Facility> facilitySet;
 

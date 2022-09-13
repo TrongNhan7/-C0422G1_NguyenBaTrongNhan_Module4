@@ -40,7 +40,7 @@ public class FacilityController {
     @GetMapping("")
     public String showFacility(Model model, @RequestParam(defaultValue = "") String keyword,
                                @RequestParam(required = false, defaultValue = "0") Integer typeId,
-                               @PageableDefault(size = 2, sort = "nameService", direction = Sort.Direction.ASC)
+                               @PageableDefault(size = 4, sort = "nameService", direction = Sort.Direction.ASC)
                                        Pageable pageable) {
         FacilityType facilityType = iFacilityTypeService.findById(typeId);
         model.addAttribute("facilityList", iFacilityService.findAllByName(pageable, keyword, facilityType));

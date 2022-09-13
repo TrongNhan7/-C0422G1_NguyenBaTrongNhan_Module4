@@ -29,7 +29,8 @@
                     <select id="facilityType" name="type" onchange="chooseServiceType()"
                             th:field="*{facilityType.id}" class="form-select">
                         <option value="">Chọn loại dịch vụ</option>
-                        <option th:each="type : ${facilityType}" th:value="${type.id}"
+                        <option th:each="type : ${facilityType}"
+                                th:value="${type.id}"
                                 th:text="${type.name}"></option>
                     </select>
                 </div>
@@ -131,7 +132,7 @@
                 document.getElementById("number_of_floors").style.display = "block";
                 document.getElementById("facility_free").style.display = "none";
                 document.getElementById("facility_free").value = "";
-                // document.getElementById("rent_type_id").value = ${facility.rentTypeId};
+
                 break;
             case "2":
                 document.getElementById("standard_room").style.display = "block";
@@ -141,7 +142,7 @@
                 document.getElementById("number_of_floors").style.display = "block";
                 document.getElementById("facility_free").style.display = "none";
                 document.getElementById("facility_free").value = "";
-                // document.getElementById("rent_type_id").value = ${facility.rentTypeId};
+
 
                 break;
             case "3":
@@ -153,7 +154,7 @@
                 document.getElementById("standard_room").value = "";
                 document.getElementById("pool_area").value = 0;
                 document.getElementById("number_of_floors").value = 0;
-                // document.getElementById("rent_type_id").value = ${facility.rentTypeId};
+
                 break;
         }
     }

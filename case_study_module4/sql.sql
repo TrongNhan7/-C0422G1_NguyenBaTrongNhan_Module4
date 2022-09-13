@@ -1,4 +1,4 @@
-use case_study_module4;
+use case_study_module4_fix;
 
 insert into `position`(id,`name`)
 values ("1","Quản Lý"),
@@ -104,19 +104,47 @@ VALUES ("1", "5", "2", "4"),
 ("8", "2", "12", "2");
 
 delimiter $$
-CREATE PROCEDURE find_by_sp(name_key varchar(55))
+create function func_tinh_tien (id int)
+returns int
+deterministic
 begin
+	declare result int;
 SELECT 
-   *
+    SUM(dv.cost + ifnull(quantity * dvdk.cost,0)) into result
 FROM
-    customer
+    customer kh
         JOIN
-    customer_type ON customer.customer_type_id = customer_type.id
-    where customer.`status` = 0 and (customer.customer_name like concat("%",name_key,"%") 
-    or customer_type.`name` like concat("%",name_key,"%")) ;
+    customer_type lk ON lk.id = kh.id
+        LEFT JOIN
+    contract hd ON hd.customer_id = kh.id
+        LEFT JOIN
+    facility dv ON hd.facility_id = dv.id
+        LEFT JOIN
+    contract_detail hdct ON hd.id = hdct.contract_id
+        LEFT JOIN
+    attach_facility dvdk ON hdct.attach_facility_id = dvdk.id
+    where hd.id = id
+GROUP BY hd.id;
+return result;
 end $$
 delimiter ;
 
-call find_by_sp("Diamond");
 
-select * from customer where customer_name like concat('%',"",'%') and `status` = 0;
+
+-- delimiter $$
+-- CREATE PROCEDURE find_by_sp(name_key varchar(55))
+-- begin
+-- SELECT 
+--    *
+-- FROM
+--     customer
+--         JOIN
+--     customer_type ON customer.customer_type_id = customer_type.id
+--     where customer.`status` = 0 and (customer.customer_name like concat("%",name_key,"%") 
+--     or customer_type.`name` like concat("%",name_key,"%")) ;
+-- end $$
+-- delimiter ;
+
+-- call find_by_sp("Diamond");
+
+-- select * from customer where customer_name like concat('%',"",'%') and `status` = 0;

@@ -8,19 +8,18 @@
 <body>
 <nav th:replace="~{layout::header}"></nav>
 <div style="text-align: center">
-    <h1>CONTRACT</h1>
+    <h1>EMPLOYEE</h1>
 </div>
-<!--<div th:if="${mess != null}">-->
-<!--    <p style="color: red" th:text="${mess}"></p>-->
-<!--</div>-->
-<div style="text-align: center">
-    <h1 class="text-white">Employee</h1>
+<div th:if="${mess != null}">
+    <p style="color: red" th:text="${mess}"></p>
 </div>
-
+<button type="button" class="btn btn-primary"
+        data-bs-toggle="modal" data-bs-target="#createNewEmployee">Create Employee
+</button>
 <div class="container ">
     <table class="table table-dark table-striped">
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>Name</th>
             <th>date_of_birth</th>
             <th>Id Card</th>
@@ -31,41 +30,38 @@
             <th>Position</th>
             <th>Education Degree</th>
             <th>Division</th>
+            <th>User</th>
             <th colspan="2" style="text-align: center">Actions</th>
         </tr>
-        <c:forEach var="employee" items="${employeeList}">
-            <tr>
-                <td><c:out value="${employee.id}"/></td>
-                <td><c:out value="${employee.name}"/></td>
-                <td><c:out value="${employee.birthday}"/></td>
-                <td><c:out value="${employee.idCard}"/></td>
-                <td><c:out value="${employee.salary}"/></td>
-                <td><c:out value="${employee.phoneNumber}"/></td>
-                <td><c:out value="${employee.email}"/></td>
-                <td><c:out value="${employee.address}"/></td>
-                <td><c:out value="${employee.namePosition}"/></td>
-                <td><c:out value="${employee.nameLevel}"/></td>
-                <td><c:out value="${employee.namePart}"/></td>
 
-                <td style="text-align: center">
-                    <button onclick="showInfoEdit('${employee.id}','${employee.name}',
-                            '${employee.birthday}','${employee.idCard}','${employee.salary}'
-                            ,'${employee.phoneNumber}','${employee.email}','${employee.address}','${employee.namePosition}',
-                            '${employee.nameLevel}','${employee.namePart}')" type="button"
-                            class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#editEmployee">
-                        Edit
-                    </button>
-                </td>
-                <td style="text-align: center">
-                    <button onclick="showInfoDelete('${employee.id}','${employee.name}')" type="button"
-                            class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#delete">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </c:forEach>
+        <tr th:each="employee,status :${employeeList}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.birthday}"></td>
+            <td th:text="${employee.idCard}"></td>
+            <td th:text="${employee.salary}"></td>
+            <td th:text="${employee.phoneNumber}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.address}"></td>
+            <td th:text="${employee.position.name}"></td>
+            <td th:text="${employee.education.name}"></td>
+            <td th:text="${employee.division.name}"></td>
+            <td th:text="${employee.user.userName}"></td>
+
+            <td style="text-align: center">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editEmployee"
+                        th:attr="onclick=|showInfoEdit('${employee.id}')|">Edit
+                </button>
+            </td>
+            <td style="text-align: center">
+                <button th:attr="onclick=|showInfoDelete('${employee.id}','${employee.name}')|" type="button"
+                        class="btn btn-primary"
+                        data-bs-toggle="modal" data-bs-target="#delete">
+                    Delete
+                </button>
+            </td>
+        </tr>
+
     </table>
 
 </div>
@@ -73,207 +69,479 @@
 <!-- Modal delete -->
 <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/customer?action=deleteCustomer" method="post">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" id="deleteId" name="idCustomer">
-                    <span>Bạn có muốn xóa Customer: </span><span id="deleteName"></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-secondary">Delete</button>
-                </div>
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </form>
+            <div class="modal-body">
+                <input type="hidden" id="deleteId" name="idCustomer">
+                <span>Bạn có muốn xóa Employee: </span><span id="deleteName"></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-secondary" id="deleteEmployee">Delete</button>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="addNewEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Create-->
+<div class="modal fade" id="createNewEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/employee?action=createEmployee" method="post">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12">
-                        <label for="name" class="form-label">Name Employee</label>
-                        <input type="text" class="form-control" id="name" name="nameEmployee" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="birthday" class="form-label">Birthday</label>
-                        <input type="date" class="form-control" id="birthday" name="date_of_birth" required>
-                    </div>
-
-                    <div class="col-md-12">
-                        <label for="idCard" class="form-label">Id Card </label>
-                        <input type="text" class="form-control" id="idCard" name="idCard" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="salary" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="salary" name="salary" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="number" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
-                    </div>
-
-                    <div class="col-md-12 ">
-                        <label for="position" class="form-label">Position</label>
-                        <select name="position" id="position">
-                            <option value="1">Lễ tân</option>
-                            <option value="2">Phục vụ</option>
-                            <option value="3">Chuyên viên</option>
-                            <option value="4">Giám sát</option>
-                            <option value="5">Quản lý</option>
-                            <option value="6">Giám đốc</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-12 ">
-                        <label for="education" class="form-label">Education Degree Id</label>
-                        <select name="education" id="education">
-                            <option value="1">Trung cấp</option>
-                            <option value="2">Cao đẳng</option>
-                            <option value="3">Đại học</option>
-                            <option value="4">Sau Đại học</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-12 ">
-                        <label for="division" class="form-label">Division</label>
-                        <select name="division" id="division">
-                            <option value="1">Sale-Marketing</option>
-                            <option value="2">Hành chính</option>
-                            <option value="3">Phục vụ</option>
-                            <option value="4">Quản lý</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </form>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <label for="name" class="form-label">Name Employee</label>
+                    <input type="text" class="form-control" id="name" name="nameEmployee">
+                    <p style="color: red" id="regexName"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="birthday" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="birthday" name="date_of_birth">
+                    <p style="color: red" id="regexBirthday"></p>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="idCard" class="form-label">Id Card </label>
+                    <input type="text" class="form-control" id="idCard" name="idCard">
+                    <p style="color: red" id="regexIdCard"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" class="form-control" id="salary" name="salary">
+                    <p style="color: red" id="regexSalary"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" class="form-control" id="phone" name="phone">
+                    <p style="color: red" id="regexPhone"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                    <p style="color: red" id="regexEmail"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address">
+                    <p style="color: red" id="regexAddress"></p>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Position:</label>
+                    <label>
+                        <select class="form-control" id="position">
+                            <option th:each="position : ${positionList}"
+                                    th:value="${position.id}"
+                                    th:text="${position.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Education Degree:</label>
+                    <label>
+                        <select class="form-control" id="educationDegree">
+                            <option th:each="education : ${educationList}"
+                                    th:value="${education.id}"
+                                    th:text="${education.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Division:</label>
+                    <label>
+                        <select id="division" class="form-control">
+                            <option th:each="division : ${divisionList}" th:value="${division.id}"
+                                    th:text="${division.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>User:</label>
+                    <label>
+                        <select class="form-control" id="user">
+                            <option th:each="user : ${userList}"
+                                    th:value="${user.userName}"
+                                    th:text="${user.userName}"></option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="create">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
 
 <!-- Edit -->
 <div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="/employee?action=editEmployee" method="post">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel4">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12">
-                        <label for="nameEdit" class="form-label">Name Employee</label>
-                        <input type="text" class="form-control" id="nameEdit" name="nameEmployee" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="birthdayEdit" class="form-label">Birthday</label>
-                        <input type="date" class="form-control" id="birthdayEdit" name="date_of_birth" required>
-                    </div>
 
-                    <div class="col-md-12">
-                        <label for="idCardEdit" class="form-label">Id Card </label>
-                        <input type="text" class="form-control" id="idCardEdit" name="idCard" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="salaryEdit" class="form-label">Salary</label>
-                        <input type="number" class="form-control" id="salaryEdit" name="salary" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="phoneEdit" class="form-label">Phone</label>
-                        <input type="number" class="form-control" id="phoneEdit" name="phone" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="emailEdit" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="emailEdit" name="email" required>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="addressEdit" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="addressEdit" name="addressEdit" required>
-                    </div>
-                    <div class="col-md-12 ">
-                        <label for="educationEdit" class="form-label">Education Degree Id</label>
-                        <select name="education" id="educationEdit">
-                            <option value="1">Trung cấp</option>
-                            <option value="2">Cao đẳng</option>
-                            <option value="3">Đại học</option>
-                            <option value="4">Sau Đại học</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 ">
-                        <label for="positionEdit" class="form-label">Position</label>
-                        <select name="position" id="positionEdit">
-                            <option value="1">Lễ tân</option>
-                            <option value="2">Phục vụ</option>
-                            <option value="3">Chuyên viên</option>
-                            <option value="4">Giám sát</option>
-                            <option value="5">Quản lý</option>
-                            <option value="6">Giám đốc</option>
-                        </select>
-                    </div>
-                    <div class="col-md-12 ">
-                        <label for="divisionEdit" class="form-label">Division</label>
-                        <select name="division" id="divisionEdit">
-                            <option value="1">Sale-Marketing</option>
-                            <option value="2">Hành chính</option>
-                            <option value="3">Phục vụ</option>
-                            <option value="4">Quản lý</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel4">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </form>
+            <div class="modal-body">
+                <input id="idEdit" type="hidden">
+                <div class="col-md-12">
+                    <label for="name" class="form-label">Name Employee</label>
+                    <input type="text" class="form-control" id="nameEdit" name="nameEmployee">
+                    <p style="color: red" id="regexNameEdit"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="birthday" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="birthdayEdit" name="date_of_birth">
+                    <p style="color: red" id="regexBirthdayEdit"></p>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="idCard" class="form-label">Id Card </label>
+                    <input type="text" class="form-control" id="idCardEdit" name="idCard">
+                    <p style="color: red" id="regexIdCardEdit"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" class="form-control" id="salaryEdit" name="salary">
+                    <p style="color: red" id="regexSalaryEdit"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="number" class="form-control" id="phoneEdit" name="phone">
+                    <p style="color: red" id="regexPhoneEdit"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailEdit" name="email">
+                    <p style="color: red" id="regexEmailEdit"></p>
+                </div>
+                <div class="col-md-12">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="addressEdit" name="address">
+                    <p style="color: red" id="regexAddressEdit"></p>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Position:</label>
+                    <label>
+                        <select class="form-control" id="positionEdit">
+                            <option th:each="position : ${positionList}"
+                                    th:value="${position.id}"
+                                    th:text="${position.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Education Degree:</label>
+                    <label>
+                        <select class="form-control" id="educationDegreeEdit">
+                            <option th:each="education : ${educationList}"
+                                    th:value="${education.id}"
+                                    th:text="${education.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>Division:</label>
+                    <label>
+                        <select id="divisionEdit" class="form-control">
+                            <option th:each="division : ${divisionList}" th:value="${division.id}"
+                                    th:text="${division.name}"></option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col-md-12 ">
+                    <label>User:</label>
+                    <label>
+                        <select class="form-control" id="userEdit">
+                            <option th:each="user : ${userList}"
+                                    th:value="${user.userName}"
+                                    th:text="${user.userName}"></option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="saveEdit">Save changes</button>
+            </div>
+
+        </div>
+
     </div>
 </div>
-<script src="js/bootstrap.min.js"></script>
-<script>
-    function showInfoDelete(id, name) {
-        document.getElementById("deleteId").value = id;
-        document.getElementById("deleteName").innerText = name;
-    }
+<div>
+    <a th:href="@{'/employee'(page=${employeeList.number - 1},name=${name})}"
+       th:if="${employeeList.hasPrevious()}">
+        <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">Previous</button></a>
+    <span th:text="${employeeList.number + 1}"></span>/<span th:text="${employeeList.totalPages}"></span>
+    <a th:href="@{'/employee'(page=${employeeList.number + 1},name=${name})}"
+       th:if="${employeeList.hasNext()}">
+        <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">Next</button>
+    </a>
+</div>
+<script src="js/bootstrap.js"></script>
 
-
-    function showInfoEdit(id, nameEmployee, date_of_birth, idCard,salary, phone, email
-        ,address, positionId,educationDegreeId, division) {
-        document.getElementById("deleteId").value = id;
-        document.getElementById("nameEdit").value = nameEmployee;
-        document.getElementById("birthdayEdit").value = date_of_birth;
-        document.getElementById("idCardEdit").value = idCard;
-        document.getElementById("phoneEdit").value = phone;
-        document.getElementById("emailEdit").value = email;
-        document.getElementById("salaryEdit").value = salary;
-        document.getElementById("addressEdit").value = address;
-        document.getElementById("educationEdit").value = educationDegreeId;
-        document.getElementById("positionEdit").value = positionId;
-        document.getElementById("divisionEdit").value = division;
-    }
+<script
+        src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous">
 </script>
+
+<script>
+
+    $('#create').on('click', function () {
+        let name = $('#name').val();
+        let birthday = $('#birthday').val();
+        let idCard = $('#idCard').val();
+        let salary = $('#salary').val();
+        let phone = $('#phone').val();
+        let email = $('#email').val();
+        let address = $('#address').val();
+        let position = $('#position').val();
+        let division = $('#division').val();
+        let educationDegree = $('#educationDegree').val();
+        let user = $('#user').val();
+
+        let newEmployee = {
+            name: name,
+            birthday: birthday,
+            idCard: idCard,
+            salary: salary,
+            phoneNumber: phone,
+            email: email,
+            address: address,
+            position: {
+                id: position
+            },
+            division: {
+                id: division
+            },
+            education: {
+                id: educationDegree
+            },
+            user: {
+                userName: user
+            }
+        };
+        console.log(newEmployee);
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            data: JSON.stringify(newEmployee),
+            url: `api/employee/create`,
+            success: function () {
+                window.location = "/employee";
+            },
+            error: function (data) {
+                if (data.responseJSON.name != null) {
+                    $('#regexName').html(data.responseJSON.name)
+                } else {
+                    $('#regexName').html("");
+                }
+
+                if (data.responseJSON.birthday != null) {
+                    $('#regexBirthday').html(data.responseJSON.birthday)
+                } else {
+                    $('#regexBirthday').html("")
+                }
+
+                if (data.responseJSON.idCard != null) {
+                    $('#regexIdCard').html(data.responseJSON.idCard)
+                } else {
+                    $('#regexIdCard').html("")
+                }
+
+                if (data.responseJSON.salary != null) {
+                    $('#regexSalary').html(data.responseJSON.salary)
+                } else {
+                    $('#regexSalary').html("")
+                }
+
+                if (data.responseJSON.phoneNumber != null) {
+                    $('#regexPhone').html(data.responseJSON.phoneNumber)
+                } else {
+                    $('#regexPhone').html("")
+                }
+
+                if (data.responseJSON.email != null) {
+                    $('#regexEmail').html(data.responseJSON.email)
+                } else {
+                    $('#regexEmail').html("")
+                }
+
+                if (data.responseJSON.address != null) {
+                    $('#address').html(data.responseJSON.address)
+                } else {
+                    $('#address').html("")
+                }
+            }
+        });
+    });
+
+    //showEdit
+    function showInfoEdit(id) {
+        $.ajax({
+            url: `api/employee/edit/` + id,
+            type: "GET",
+            success: function (employee) {
+                console.log(employee);
+                $('#idEdit').val(employee.id);
+                $('#nameEdit').val(employee.name);
+                $('#birthdayEdit').val(employee.birthday);
+                $('#idCardEdit').val(employee.idCard);
+                $('#salaryEdit').val(employee.salary);
+                $('#phoneEdit').val(employee.phoneNumber);
+                $('#emailEdit').val(employee.email);
+                $('#addressEdit').val(employee.address);
+                $('#positionEdit').val(employee.position.id);
+                $('#divisionEdit').val(employee.division.id);
+                $('#educationDegreeEdit').val(employee.education.id);
+                $('#userEdit').val(employee.user.userName);
+            },
+            error: function () {
+                alert("thua");
+            }
+        });
+    }
+
+
+    // Edit
+    $('#saveEdit').on('click', function () {
+        let id = $('#idEdit').val();
+        let name = $('#nameEdit').val();
+        let birthday = $('#birthdayEdit').val();
+        let idCard = $('#idCardEdit').val();
+        let salary = $('#salaryEdit').val();
+        let phone = $('#phoneEdit').val();
+        let email = $('#emailEdit').val();
+        let address = $('#addressEdit').val();
+        let position = $('#positionEdit').val();
+        let division = $('#divisionEdit').val();
+        let educationDegree = $('#educationDegreeEdit').val();
+        let user = $('#userEdit').val();
+
+        let newEmployeeEdit = {
+            id: id,
+            name: name,
+            birthday: birthday,
+            idCard: idCard,
+            salary: salary,
+            phoneNumber: phone,
+            email: email,
+            address: address,
+            position: {
+                id: position
+            },
+            division: {
+                id: division
+            },
+            education: {
+                id: educationDegree
+            },
+            user: {
+                userName: user
+            }
+        };
+        console.log(newEmployeeEdit);
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+
+            },
+            contentType: "application/json; charset=utf-8",
+            type: "PUT",
+            data: JSON.stringify(newEmployeeEdit),
+            url: `http://localhost:8080/api/employee/edit`,
+            success: function () {
+                alert("Ok")
+                window.location = "/employee";
+            },
+            error: function (data) {
+                alert("Thua")
+                if (data.responseJSON.name != null) {
+                    $('#regexNameEdit').html(data.responseJSON.name)
+                } else {
+                    $('#regexNameEdit').html("");
+                }
+
+                if (data.responseJSON.birthday != null) {
+                    $('#regexBirthdayEdit').html(data.responseJSON.birthday)
+                } else {
+                    $('#regexBirthdayEdit').html("")
+                }
+
+                if (data.responseJSON.idCard != null) {
+                    $('#regexIdCardEdit').html(data.responseJSON.idCard)
+                } else {
+                    $('#regexIdCardEdit').html("")
+                }
+
+                if (data.responseJSON.salary != null) {
+                    $('#regexSalaryEdit').html(data.responseJSON.salary)
+                } else {
+                    $('#regexSalaryEdit').html("")
+                }
+
+                if (data.responseJSON.phoneNumber != null) {
+                    $('#regexPhoneEdit').html(data.responseJSON.phoneNumber)
+                } else {
+                    $('#regexPhoneEdit').html("")
+                }
+
+                if (data.responseJSON.email != null) {
+                    $('#regexEmailEdit').html(data.responseJSON.email)
+                } else {
+                    $('#regexEmailEdit').html("")
+                }
+
+                if (data.responseJSON.address != null) {
+                    $('#addressEdit').html(data.responseJSON.address)
+                } else {
+                    $('#addressEdit').html("")
+                }
+            }
+        });
+    });
+
+    //Delete
+
+    function showInfoDelete(id, name) {
+        $("#deleteId").val(id);
+        $("#deleteName").html(name);
+        $('#deleteEmployee').on('click', function () {
+            $.ajax({
+                type: "DELETE",
+                url: `api/employee/delete/` + id,
+                //xử lý khi thành công
+                success: function (data) {
+                    window.location.reload();
+                }
+            });
+        });
+    }
+
+
+</script>
+
 </body>
 </html>

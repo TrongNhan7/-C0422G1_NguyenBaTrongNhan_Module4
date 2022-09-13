@@ -13,18 +13,30 @@
 <div th:if="${mess != null}">
     <p style="color: red" th:text="${mess}"></p>
 </div>
-<div class="mb-3">
-    <form action="/facility" id="useFacilityType">
-        <select onchange="useFacilityType()" name="typeId" class="form-select">
-            <option value="" selected>Chon</option>
-            <option th:each="type : ${facilityType}"
-                    th:value="${type.id}"
-                    th:text="${type.name}"></option>
-        </select>
-        <input class="form-control me-2" type="search" name="keyword" placeholder="Tìm kiếm theo tên dịch vụ"
-               aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
+<div class="row">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="btn btn-warning" th:href="@{/facility}">Home Facility</a>
+            <a class="btn btn-warning ms-3" th:href="@{/facility/create}">Create Facility</a>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                </ul>
+                <form action="/facility" id="useFacilityType">
+                    <select onchange="useFacilityType()" name="typeId" class="form-select">
+                        <option value="" selected>Chon</option>
+                        <option th:each="type : ${facilityType}"
+                                th:value="${type.id}"
+                                th:text="${type.name}"></option>
+                    </select>
+                  <input class="form-control me-2" type="search" name="keyword"
+                                 placeholder="Tìm kiếm theo tên dịch vụ"
+                                 aria-label="Search">
+                   <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 </div>
 
 <div style="text-align: center">
@@ -86,10 +98,14 @@
 
 <div>
     <a th:href="@{'/facility'(page=${facilityList.number - 1},keyword=${keyword})}"
-       th:if="${facilityList.hasPrevious()}">Previous</a>
+       th:if="${facilityList.hasPrevious()}">
+        <button type="button" class="btn btn-dark btn-rounded">Previous</button>
+    </a>
     <span th:text="${facilityList.number + 1}"></span>/<span th:text="${facilityList.totalPages}"></span>
     <a th:href="@{'/facility'(page=${facilityList.number + 1},keyword=${keyword})}"
-       th:if="${facilityList.hasNext()}">Next</a>
+       th:if="${facilityList.hasNext()}">
+        <button type="button" class="btn btn-dark btn-rounded">Next</button>
+    </a>
 </div>
 
 <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -60,4 +60,7 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
     @Query(value = "select * from contract where `status` = 0", nativeQuery = true)
     Page<Contract> findAll(Pageable pageable);
+
+    @Query(value = "select * from contract order by id desc limit 1", nativeQuery = true)
+    Contract findContractLast();
 }

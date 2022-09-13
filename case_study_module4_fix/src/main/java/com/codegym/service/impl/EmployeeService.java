@@ -15,8 +15,8 @@ public class EmployeeService implements IEmployeeService {
     private IEmployeeRepository iEmployeeRepository;
 
     @Override
-    public Page<Employee> findAllByName(Pageable pageable, String keyword) {
-        return null;
+    public Page<Employee> findAllByName(Pageable pageable, String name) {
+        return iEmployeeRepository.findAllByNameContaining(pageable, name);
     }
 
     @Override
@@ -26,16 +26,16 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public Employee save(Employee employee) {
-        return null;
+        return iEmployeeRepository.save(employee);
     }
 
     @Override
     public Employee findById(Integer id) {
-        return null;
+        return iEmployeeRepository.findById(id).orElse(null);
     }
 
     @Override
     public void deleteById(Integer id) {
-
+        iEmployeeRepository.deleteById(id);
     }
 }

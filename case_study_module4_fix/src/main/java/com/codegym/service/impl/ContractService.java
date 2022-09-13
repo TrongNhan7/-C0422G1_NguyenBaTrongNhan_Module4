@@ -45,4 +45,9 @@ public class ContractService implements IContractService {
     public void deleteById(Integer id) {
 
     }
+
+    @Override
+    public Contract findContractLast() {
+        return iContractRepository.findContractLast();
+    }
 }

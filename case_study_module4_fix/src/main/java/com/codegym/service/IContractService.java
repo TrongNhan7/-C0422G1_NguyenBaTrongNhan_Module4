@@ -19,4 +19,6 @@ public interface IContractService {
     Contract findById(Integer id);
 
     void deleteById(Integer id);
+
+    Contract findContractLast();
 }
