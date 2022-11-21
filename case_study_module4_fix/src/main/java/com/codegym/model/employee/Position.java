@@ -16,7 +16,7 @@ public class Position {
     private String name;
 
     @JsonBackReference(value = "position")
-    @OneToMany(mappedBy = "position")
+    @OneToMany(mappedBy = "position",cascade = CascadeType.ALL)
     private Set<Employee> employeeSet;
 
     public Position() {

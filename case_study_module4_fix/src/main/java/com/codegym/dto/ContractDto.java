@@ -111,8 +111,8 @@ public class ContractDto implements Validator {
     public void validate(Object target, Errors errors) {
         ContractDto contractDto = (ContractDto) target;
 
-        String startDate = contractDto.getStartDate();
-        Validation.checkStartDate("startDate", startDate, errors);
+            String startDate = contractDto.getStartDate();
+            Validation.checkStartDate("startDate", startDate, errors);
 
         String endDate = contractDto.getEndDate();
         Validation.checkEndDate("endDate", startDate, endDate, errors);

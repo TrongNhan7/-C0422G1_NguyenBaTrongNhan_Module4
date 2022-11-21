@@ -14,11 +14,11 @@ public class User {
     private String password;
 
     @JsonBackReference(value = "employees")
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private Set<Employee> employees;
 
     @JsonBackReference(value ="userRoles")
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
     private Set<UserRole> userRoles;
 
     public User() {

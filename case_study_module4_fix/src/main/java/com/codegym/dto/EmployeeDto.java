@@ -15,7 +15,7 @@ public class EmployeeDto{
             message = "Nhập chữ cái đàu viết hoa")
     private String name;
 
-    @NotNull(message = "Nhập gì đó đi !")
+    @NotNull(message = "Nghập ì đó đi !")
     private String birthday;
 
     @Pattern(regexp = "^[0-9]{9}|[0-9]{12}$",

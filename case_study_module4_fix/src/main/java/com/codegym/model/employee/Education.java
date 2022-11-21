@@ -15,7 +15,7 @@ public class Education {
     private String name;
 
     @JsonBackReference(value = "education")
-    @OneToMany(mappedBy = "education")
+    @OneToMany(mappedBy = "education",cascade = CascadeType.ALL)
     private Set<Employee> employeeSet;
 
     public Education() {

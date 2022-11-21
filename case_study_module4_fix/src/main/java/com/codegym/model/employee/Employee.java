@@ -1,7 +1,10 @@
 package com.codegym.model.employee;
 
 
+import com.codegym.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -36,22 +39,18 @@ public class Employee {
     @JoinColumn(name = "user_name", referencedColumnName = "user_name")
     private User user;
 
+    @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
+    private List<Contract> contractList;
+
     public Employee() {
     }
 
-    public Employee(Integer id, String name, String birthday, String idCard, Double salary, String phoneNumber, String email, String address, Position position, Education education, Division division, User user) {
-        this.id = id;
-        this.name = name;
-        this.birthday = birthday;
-        this.idCard = idCard;
-        this.salary = salary;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
-        this.position = position;
-        this.education = education;
-        this.division = division;
-        this.user = user;
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 
     public Integer getId() {

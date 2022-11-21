@@ -7,6 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class FacilityDto implements Validator {
 
@@ -158,6 +159,18 @@ public class FacilityDto implements Validator {
 
         String nameService = facilityDto.getNameService();
         Validation.checkFacilityName("nameService", nameService, errors);
+
+//        Double value = facilityDto.getCost();
+//        if (cost == null) {
+//            errors.rejectValue("cost", "field", "Nhập gì đó đi fren!");
+//        } else if (value < 0) {
+//            errors.rejectValue("cost", "field", "Nhập số > 0 nha");
+//        }
+
+//        String area = String.valueOf((facilityDto.getArea()));
+//        if (!area.matches("[0-9]+")) {
+//            errors.rejectValue("area", "field.create", "Phải số nguyên dương nha");
+//        }
 
         if (facilityDto.getFacilityType() != null) {
             Integer facilityTypeId = facilityDto.getFacilityType().getId();

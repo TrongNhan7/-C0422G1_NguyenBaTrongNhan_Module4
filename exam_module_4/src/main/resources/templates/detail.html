@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="~{layout::header}"></nav>
+<h1 class="text-center text-white ">CHI TIẾT CUSTOMER</h1>
+<table class="table table-hover table-bordered table-info">
+    <tr>
+        <th>Mã giao dịch</th>
+        <td th:text="${trade.id}"></td>
+    </tr>
+    <tr>
+        <th>Tên khách hàng</th>
+        <td th:text="${trade.customer.name}"></td>
+    </tr>
+    <tr>
+        <th>Ngày giao dịch</th>
+        <td th:text="${trade.startDate}"></td>
+    </tr>
+    <tr>
+        <th>Loại giao dịch</th>
+        <td th:text="${trade.typeService.type}"></td>
+    </tr>
+    <tr>
+        <th>Đơn giá (VND/m2)</th>
+        <td th:text="${trade.cost}"></td>
+    </tr>
+    <tr>
+        <th>Diện tích (m2)</th>
+        <td th:text="${trade.area}"></td>
+    </tr>
+
+
+
+</table>
+</body>
+<script src="/js/bootstrap.min.js"></script>
+</html>

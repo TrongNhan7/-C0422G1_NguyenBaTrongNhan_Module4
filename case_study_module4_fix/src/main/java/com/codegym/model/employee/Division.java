@@ -15,7 +15,7 @@ public class Division {
     private String name;
 
     @JsonBackReference(value = "division")
-    @OneToMany(mappedBy = "division")
+    @OneToMany(mappedBy = "division",cascade = CascadeType.ALL)
     private Set<Employee> employeeSet;
 
     public Division() {

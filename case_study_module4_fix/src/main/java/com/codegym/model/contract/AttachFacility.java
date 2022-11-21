@@ -18,7 +18,7 @@ public class AttachFacility {
     @Column(name = "status_facility")
     private String status;
 
-    @OneToMany(mappedBy = "attachFacility")
+    @OneToMany(mappedBy = "attachFacility",cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<ContractDetail> contractDetailSet;
 

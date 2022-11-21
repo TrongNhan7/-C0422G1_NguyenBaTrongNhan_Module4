@@ -147,5 +147,15 @@ public class CustomerDto implements Validator {
         if (!idCard.matches("^[0-9]{9}|[0-9]{12}$")) {
             errors.rejectValue("idCard", "idCard.create", "CMND phải theo định dạng 9 hoặc 12 số");
         }
+
+//
+//        if (!(customerDto.dayOfBirth == null || customerDto.dayOfBirth.equals(""))) {
+//            try {
+//                LocalDate.parse(customerDto.dayOfBirth);
+//            } catch (Exception e) {
+//                errors.rejectValue("dayOfBirth", "day.err", "please input right format");
+//            }
+//        }
+
     }
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="~{layout::header}"></nav>
+<div style="text-align: center">
+    <h1>TRADE</h1>
+</div>
+<div th:if="${mess != null}">
+    <p style="color: red; font-size: 30px" th:text="${mess}"></p>
+</div>
+
+<div style="text-align: center">
+    <h1 class="text-white">Trade</h1>
+</div>
+
+<div class="row">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="btn btn-warning ms-3" th:href="@{/create}">Create</a>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                </ul>
+                <form action="/" id="id">
+                    <input class="form-control me-2" type="search" name="id"
+                           placeholder="Tìm kiếm theo tên giao dịch"
+                           aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container ">
+    <table id="tableCustomer" class="table table-striped table-bordered table table-dark table-striped"
+           style="width:100%">
+        <thead>
+        <tr>
+            <th>Mã giao dịch</th>
+            <th>Tên khách hàng</th>
+            <th>Ngày giao dịch</th>
+            <th>Loại giao dịch</th>
+            <th>Đơn giá (VND/m2)</th>
+            <th>Diện tích (m2)</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr th:each="c :${tradeList}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.customer.name}"></td>
+            <td th:text="${c.startDate}"></td>
+            <td th:text="${c.typeService.type}"></td>
+            <td th:text="${c.cost}"></td>
+            <td th:text="${c.area}"></td>
+            <td>
+                <a class="btn btn-outline-info" th:href="@{/detail(id=${c.id})}">Detail</a>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <a th:href="@{'/'(page=${tradeList.number - 1},id=${id})}"
+           th:if="${tradeList.hasPrevious()}">
+            <button type="button" class="btn btn-danger btn-rounded">Previous</button>
+        </a>
+        <span th:text="${tradeList.number + 1}"></span>/<span th:text="${tradeList.totalPages}"></span>
+        <a th:href="@{'/'(page=${tradeList.number + 1},id=${id})}"
+           th:if="${tradeList.hasNext()}">
+            <button type="button" class="btn btn-danger btn-rounded">Next</button>
+        </a>
+    </div>
+</div>
+<!--<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <form action="/customer/delete">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>-->
+<!--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="hidden" id="deleteId" name="id">-->
+<!--                    <span>Bạn có muốn xóa Customer: </span><span id="deleteName"></span>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                    <button type="submit" class="btn btn-secondary">Delete</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+<script src="/js/bootstrap.min.js"></script>
+<script>
+    function showInfoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+
+    // function showInfoDelete(id) {
+    //     document.getElementById("deleteId").value = id;
+    // }
+</script>
+</body>
+</html>

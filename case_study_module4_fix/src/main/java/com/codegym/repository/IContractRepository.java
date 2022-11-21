@@ -63,4 +63,5 @@ public interface IContractRepository extends JpaRepository<Contract, Integer> {
 
     @Query(value = "select * from contract order by id desc limit 1", nativeQuery = true)
     Contract findContractLast();
+
 }

@@ -34,7 +34,7 @@ public class Contract {
     @JoinColumn(name = "facility_id", referencedColumnName = "id")
     private Facility facility;
 
-    @OneToMany(mappedBy = "contract")
+    @OneToMany(mappedBy = "contract",cascade = CascadeType.ALL)
     private Set<ContractDetail> contractDetailSet;
 
     @Transient
